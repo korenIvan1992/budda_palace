@@ -76,9 +76,9 @@ dependencies {
 
     // UI
     implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("com.google.android.material:material:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.1")
-    implementation("androidx.drawerlayout:drawerlayout:1.1.0")
+    implementation("com.google.android.material:material:1.3.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation("androidx.drawerlayout:drawerlayout:1.1.1")
     implementation("com.github.razir.progressbutton:progressbutton:2.1.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
