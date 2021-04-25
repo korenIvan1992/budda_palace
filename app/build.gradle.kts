@@ -8,7 +8,7 @@ plugins {
 
 android {
     compileSdkVersion(30)
-    buildToolsVersion = "30.0.2"
+    buildToolsVersion = "30.0.3"
 
     defaultConfig {
         applicationId = "com.android.buddapalace"
@@ -51,8 +51,6 @@ android {
 
 dependencies {
     // Modules
-//    api(project(":core"))
-//    api(project(":data"))
 
     // Kotlin
     implementation(embeddedKotlin("stdlib-jdk8"))
