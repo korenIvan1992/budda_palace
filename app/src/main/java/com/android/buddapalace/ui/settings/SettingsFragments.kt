@@ -28,15 +28,22 @@ class SettingsFragments : Fragment(R.layout.settings_fragment) {
         )
 
         binding.one =
-            Setting(
-                "Ура первый binding",
+            Setting("Daily quotes reminders",
                 requireActivity().getDrawable(R.drawable.calendar)!!
             )
 
         binding.two =
-            Setting(
-                "Ура второй binding",
+            Setting("Give us feedback",
                 requireActivity().getDrawable(R.drawable.message)!!
+            )
+
+        binding.three =
+            Setting("Rate the app",
+                requireActivity().getDrawable(R.drawable.star_outline_1)!!
+            )
+        binding.four =
+            Setting("Recommend app",
+                requireActivity().getDrawable(R.drawable.share)!!
             )
 
         return binding.root

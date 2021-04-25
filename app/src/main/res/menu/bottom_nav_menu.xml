@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/quotes"
-        android:icon="@drawable/favorites"
+        android:icon="@drawable/quotes"
         android:title="@string/daily_quotes" />
 
     <item
