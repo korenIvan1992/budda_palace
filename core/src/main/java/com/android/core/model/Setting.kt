@@ -1,4 +1,4 @@
-package com.android.data.domain
+package com.android.core.model
 
 import android.graphics.drawable.Drawable
 

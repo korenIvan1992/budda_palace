@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.android.buddapalace.R
-import com.android.data.domain.Setting
+import com.android.core.model.Setting
 import com.android.buddapalace.databinding.SettingsFragmentBinding
 
 
