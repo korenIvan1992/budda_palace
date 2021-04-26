@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.android.buddapalace.R
-import com.android.buddapalace.data.Setting
+import com.android.data.domain.Setting
 import com.android.buddapalace.databinding.SettingsFragmentBinding
-import com.android.buddapalace.databinding.SettingsItemBinding
 
 
 class SettingsFragments : Fragment(R.layout.settings_fragment) {

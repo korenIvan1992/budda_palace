@@ -1,4 +1,4 @@
-package com.android
+package com.android.buddapalace
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

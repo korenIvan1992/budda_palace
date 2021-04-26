@@ -1,4 +1,4 @@
-package com.android.buddapalace.data
+package com.android.data.domain
 
 import android.graphics.drawable.Drawable
 

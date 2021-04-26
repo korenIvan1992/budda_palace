@@ -51,6 +51,8 @@ android {
 
 dependencies {
     // Modules
+    api(project(":core"))
+    api(project(":data"))
 
     // Kotlin
     implementation(embeddedKotlin("stdlib-jdk8"))

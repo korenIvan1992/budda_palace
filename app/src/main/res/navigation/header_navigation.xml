@@ -8,18 +8,15 @@
     <fragment
         android:id="@+id/quotes"
         android:name="com.android.buddapalace.ui.quotes.QuotesFragment"
-        android:label="@string/title_home"
         tools:layout="@layout/quotes_fragment" />
 
     <fragment
         android:id="@+id/favorites"
         android:name="com.android.buddapalace.ui.favorites.FavoritesFragment"
-        android:label="@string/title_dashboard"
         tools:layout="@layout/favorites_fragment" />
 
     <fragment
         android:id="@+id/settings"
         android:name="com.android.buddapalace.ui.settings.SettingsFragments"
-        android:label="@string/title_notifications"
         tools:layout="@layout/settings_fragment" />
 </navigation>
