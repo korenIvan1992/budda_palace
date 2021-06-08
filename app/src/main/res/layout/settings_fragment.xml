@@ -29,7 +29,7 @@
             name="about_buddha_palace"
             type="com.android.buddapalace.model.settings.Setting" />
 
-         <variable name="settingsHandlers" type="com.android.buddapalace.ui.settings.SettingsHandlers"/>
+         <variable name="settingsHandlers" type="com.android.buddapalace.ui.settings.SettingsViewModel"/>
 
     </data>
 

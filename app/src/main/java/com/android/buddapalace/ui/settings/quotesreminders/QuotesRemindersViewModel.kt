@@ -14,6 +14,5 @@ class QuotesRemindersViewModel(
     fun onCheckedChanged(checked: Boolean) {
         Timber.d("")
     }
-
 }
 
