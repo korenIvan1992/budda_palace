@@ -4,11 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
+    android:background="@color/white_settings_bottom"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    >
 
     <ImageView
+        android:id="@+id/background_header"
         android:scaleType="centerCrop"
         android:src="@drawable/bg_big"
         android:layout_width="match_parent"
@@ -18,13 +20,15 @@
         android:background="@drawable/gradient_top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    
+
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:itemBackground="@color/white"
+        android:background="@drawable/nav_radius_top"
         app:itemIconTint="@color/bnv_tab_item_foreground"
         app:itemTextColor="@color/bnv_tab_item_foreground"
         app:layout_constraintBottom_toBottomOf="parent"

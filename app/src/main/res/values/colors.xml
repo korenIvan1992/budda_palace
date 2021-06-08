@@ -2,8 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#9ba2b1</color>
+    <color name="gray_week">#EFF0F3</color>
     <color name="white_settings_bottom">#F3F3F3</color>
     <color name="red_dark">#d12332</color>
     <color name="red_light">#e84755</color>
+    <color name="mango">#fbb037</color>
     <color name="separate">#DAD9D9</color>
+    <color name="transparent">#00000000</color>
 </resources>

@@ -31,6 +31,15 @@ android {
 
     flavorDimensions("default")
 
+    productFlavors {
+        val appName = "Test"
+
+        create("prod") {
+            versionCode = 1
+            versionName = "1.0"
+            resValue("string", "app_name", appName)
+        }
+    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -56,6 +65,7 @@ dependencies {
 
     // Kotlin
     implementation(embeddedKotlin("stdlib-jdk8"))
+    implementation("androidx.cardview:cardview:1.0.0")
 
     // Kotlin coroutines
     val coroutinesVersion = "1.3.8"

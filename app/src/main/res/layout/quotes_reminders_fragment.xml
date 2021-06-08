@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="daily_quotes_teminders_name"
+            type="com.android.buddapalace.model.settings.Setting" />
+
+
+        <variable
+            name="quotesRemindersHandlers"
+            type="com.android.buddapalace.ui.settings.quotesreminders.QuotesRemindersViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_settings_bottom">
+
+
+        <ImageView
+            android:id="@+id/background_header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_big" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:onClick="@{(view) -> quotesRemindersHandlers.back()}"
+            android:src="@drawable/back_white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/daily_quotes_reminders"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/radius_top_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0">
+
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_description"
+                android:onCheckedChanged="@{(switch, checked) -> quotesRemindersHandlers.onCheckedChanged(checked)}"
+                style="@style/title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/allow_notifications"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:theme="@style/color_switch" />
+
+            <include
+                android:id="@+id/sep1"
+                layout="@layout/separate_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switch_description" />
+
+            <LinearLayout
+                android:id="@+id/description_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sep1">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sep1">
+
+                    <TextView
+                        style="@style/title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/i_want_to_receive_quotes_on_these_days" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/mon"
+                            style="@style/week_day_active"
+                            android:text="@string/mon" />
+
+                        <TextView
+                            android:id="@+id/tue"
+                            style="@style/week_day"
+                            android:layout_weight="1"
+                            android:text="@string/tue" />
+
+                        <TextView
+                            android:id="@+id/wen"
+                            style="@style/week_day"
+                            android:layout_weight="1"
+                            android:text="@string/wen" />
+
+                        <TextView
+                            android:id="@+id/thu"
+                            style="@style/week_day_active"
+                            android:layout_weight="1"
+                            android:text="@string/thu" />
+
+                        <TextView
+                            android:id="@+id/fri"
+                            style="@style/week_day"
+                            android:layout_weight="1"
+                            android:text="@string/fri" />
+
+                        <TextView
+                            android:id="@+id/sat"
+                            style="@style/week_day_active"
+                            android:layout_weight="1"
+                            android:text="@string/sat" />
+
+                        <TextView
+                            android:id="@+id/sun"
+                            style="@style/week_day"
+                            android:layout_weight="1"
+                            android:text="@string/sun" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/every_day"
+                        style="@style/week_day"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="@string/every_day" />
+
+                </LinearLayout>
+
+
+                <include
+                    android:id="@+id/sep2"
+                    layout="@layout/separate_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/description_view" />
+
+                <LinearLayout
+                    android:id="@+id/description_view_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sep2">
+
+                    <TextView
+                        style="@style/title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/i_will_do_it" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:id="@+id/morning"
+                            style="@style/week_day"
+                            android:layout_weight="1"
+                            android:text="@string/morning" />
+
+                        <TextView
+                            android:id="@+id/afternoon"
+                            style="@style/week_day_active"
+                            android:layout_weight="1"
+                            android:text="@string/afternoon" />
+
+                        <TextView
+                            android:id="@+id/evening"
+                            style="@style/week_day"
+                            android:layout_weight="1"
+                            android:text="@string/evening" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:id="@+id/any_time"
+                            style="@style/week_day"
+                            android:layout_weight="1"
+                            android:text="@string/any_time" />
+
+                        <TextView
+                            android:id="@+id/exact_time"
+                            style="@style/week_day"
+                            android:layout_weight="1"
+                            android:text="Exact time" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
+
+

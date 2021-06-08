@@ -8,5 +8,7 @@ class DataKoinModule : KoinModule {
     override val modulesList = listOf(
         networkModule,
         databaseModule,
+        repositoryModule,
+        dataSourceModule
     )
 }

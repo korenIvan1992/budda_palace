@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion(39)
+    compileSdkVersion(30)
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
@@ -30,6 +30,9 @@ dependencies {
     // Kotlin coroutines
     val coroutinesVersion = "1.3.8"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+
+    val timberVersion = "4.7.1"
+    api("com.jakewharton.timber:timber:$timberVersion")
 
     // Lifecycle
     val lifecycleVersion = "2.2.0"

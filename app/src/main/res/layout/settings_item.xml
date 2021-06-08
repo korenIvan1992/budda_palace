@@ -6,7 +6,7 @@
     <data>
         <variable
             name="setting"
-            type="com.android.buddapalace.data.Setting" />
+            type="com.android.buddapalace.model.settings.Setting" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,36 +14,22 @@
         android:layout_height="wrap_content"
       >
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/image"
-            android:scaleType="centerCrop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/text_item"
+            style="@style/text_setting_style"
+            android:layout_width="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/view2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@{setting.src}"
-            tools:src="@drawable/calendar" />
-
-        <TextView
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:id="@+id/text_item"
             android:gravity="center_vertical"
-            style="@style/text_setting_style"
-            android:layout_width="0dp"
             android:maxLines="1"
             android:singleLine="true"
             android:text="@{setting.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView2"
-            app:layout_constraintStart_toEndOf="@+id/image"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Название элемента"
-            />
+            tools:text="Название элемента" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -55,14 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/text_item" />
 
-        <View
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/separate"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

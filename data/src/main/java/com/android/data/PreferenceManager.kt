@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 
 
 @SuppressLint("CommitPrefEdits")
-class PreferenceManager @Inject
+class PreferenceManager
 internal constructor(context: Context) {
 
 
@@ -20,18 +20,18 @@ internal constructor(context: Context) {
 
     companion object {
         private const val PREF_NAME = "PreferenceManager.QUOTES_BP"
-        private const val CHECK_SIGN_APP = "PreferenceManager.QUOTES_BP.CHECK_SIGN_APP"
+        private const val TEST = "PreferenceManager.QUOTES_BP.TEST"
 
     }
-//
-//    fun setUserLogin(isUserLogin: Boolean) {
-//        editor.putBoolean(CHECK_SIGN_APP, isUserLogin)
-//        editor.commit()
-//    }
-//
-//    fun isUserLogin(): Boolean {
-//        return pref.getBoolean(CHECK_SIGN_APP, false)
-//    }
+
+    fun setTestPref(isUserLogin: String) {
+        editor.putString(TEST, isUserLogin)
+        editor.commit()
+    }
+
+    fun getTestPref(): String {
+        return pref.getString(TEST, "").toString()
+    }
 
 
 

@@ -1,8 +1,29 @@
 <resources>
-    <string name="app_name">Quotes</string>
     <string name="daily_quotes">Daily quotes</string>
     <string name="lama_ole_quotes">Lama Ole Nydal Quotes</string>
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>
     <string name="daily_quotes_reminders">Daily quotes reminders</string>
+    <string name="give_us_feedback">Give us feedback</string>
+    <string name="rate_the_app">Rate the app</string>
+    <string name="recommend_app">Recommend app</string>
+    <string name="acknowledgement">Acknowledgement</string>
+    <string name="about_buddha_palace">About Buddha Palace</string>
+    <string name="made_with">Made with</string>
+    <string name="in_belarus">in Belarus</string>
+    <string name="allow_notifications">Allow notifications</string>
+    <string name="i_want_to_receive_quotes_on_these_days">I want to receive quotes on these days</string>
+    <string name="mon">Mon</string>
+    <string name="tue">Tue</string>
+    <string name="wen">Wen</string>
+    <string name="thu">Thu</string>
+    <string name="fri">Fri</string>
+    <string name="sat">Sat</string>
+    <string name="sun">Sun</string>
+    <string name="every_day">Every day</string>
+    <string name="i_will_do_it">I will do it</string>
+    <string name="morning">Morning</string>
+    <string name="afternoon">Afternoon</string>
+    <string name="evening">Evening</string>
+    <string name="any_time">At any time</string>
 </resources>

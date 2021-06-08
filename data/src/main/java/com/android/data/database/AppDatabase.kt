@@ -1,19 +1,23 @@
 package com.android.data.database
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.android.data.database.converter.ConverterDb
+import com.android.data.database.dao.quotes.QuotesDao
+import com.android.data.database.entity.quotes.Quotes
 
-//@Database(
-//    entities = [AuthDataEntity::class, UserEntity::class, OrderEntity::class, ProductEntity::class],
-//    version = 1,
-//    exportSchema = false
-//)
-//@TypeConverters(OrderConverter::class)
+@Database(
+    entities = [Quotes::class],
+    version = 1,
+    exportSchema = false
+)
+@TypeConverters(ConverterDb::class)
 abstract class AppDatabase : RoomDatabase() {
 
-//    abstract val userDao: UserDao
-
+    abstract val quotesDao: QuotesDao
 
     companion object {
 

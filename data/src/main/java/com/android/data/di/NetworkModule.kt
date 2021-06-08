@@ -1,5 +1,6 @@
 package com.android.data.di
 
+import com.android.data.network.service.BaseApiService
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.datatype.joda.JodaModule
@@ -16,8 +17,7 @@ val networkModule = module {
     single { provideObjectMapper() }
 
     // Services
-    single { provideLoginApiService(get()) }
-    single { provideOrderApiService(get()) }
+    single { provideApiService(get()) }
 
     // Network clients
     single { provideOkHttpClient(get()) }
@@ -43,7 +43,7 @@ private fun provideOkHttpClient(
     return OkHttpClient().newBuilder()
         .connectTimeout(60, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
-        .writeTimeout(10, TimeUnit.MINUTES)
+        .writeTimeout(60, TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor)
         .build()
 }
@@ -69,6 +69,6 @@ private fun provideLoggingInterceptor(): HttpLoggingInterceptor {
 }
 
 // Service providers
-private fun provideLoginApiService(retrofit: Retrofit): LoginApiService = retrofit.create(
+private fun provideApiService(retrofit: Retrofit): BaseApiService = retrofit.create(
     BaseApiService::class.java
 )
