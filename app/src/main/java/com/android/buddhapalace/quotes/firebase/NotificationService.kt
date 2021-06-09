@@ -44,8 +44,10 @@ object NotificationService {
             notificationManager.createNotificationChannel(mChannel)
         }
 
+
+
         val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.mipmap.icon)
+            .setSmallIcon(R.drawable.ic_push_small)
             .setLargeIcon(
                 BitmapFactory.decodeResource(
                     context.resources,
@@ -62,6 +64,9 @@ object NotificationService {
             .setAutoCancel(true)
             .setGroupSummary(true)
             .setChannelId(CHANNEL_ID)
+
+
+
 
         notificationManager.notify(1, notificationBuilder.build())
     }
