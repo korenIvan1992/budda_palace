@@ -49,35 +49,12 @@ class SettingsFragments : Fragment(R.layout.settings_fragment) {
     }
 
     private fun initBinding(binding: SettingsFragmentBinding) {
-        binding.dailyQuotesReminders = Setting(
-            getString(R.string.daily_quotes_reminders),
-            ContextCompat.getDrawable(requireActivity(), R.drawable.calendar)
-        )
-
-        binding.giveUsFeedback = Setting(
-            getString(R.string.give_us_feedback),
-            ContextCompat.getDrawable(requireActivity(), R.drawable.message)
-        )
-
-        binding.rateApp = Setting(
-            getString(R.string.rate_the_app),
-            ContextCompat.getDrawable(requireActivity(), R.drawable.star_outline_1)
-        )
-
-        binding.recommendApp = Setting(
-            getString(R.string.recommend_app),
-            ContextCompat.getDrawable(requireActivity(), R.drawable.share)
-        )
-
-        binding.acknowledgement = Setting(
-            getString(R.string.acknowledgement),
-            null
-        )
-
-        binding.aboutBuddhaPalace = Setting(
-            getString(R.string.about_buddha_palace),
-            null
-        )
+        binding.dailyQuotesReminders = Setting(getString(R.string.daily_quotes_reminders), ContextCompat.getDrawable(requireActivity(), R.drawable.calendar))
+        binding.giveUsFeedback = Setting(getString(R.string.give_us_feedback), ContextCompat.getDrawable(requireActivity(), R.drawable.message))
+        binding.rateApp = Setting(getString(R.string.rate_the_app), ContextCompat.getDrawable(requireActivity(), R.drawable.star_outline_1))
+        binding.recommendApp = Setting(getString(R.string.recommend_app), ContextCompat.getDrawable(requireActivity(), R.drawable.share))
+        binding.acknowledgement = Setting(getString(R.string.acknowledgement), null)
+        binding.aboutBuddhaPalace = Setting(getString(R.string.about_buddha_palace), null)
     }
 
     override fun onStart() {

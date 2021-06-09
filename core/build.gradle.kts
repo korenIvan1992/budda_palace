@@ -39,11 +39,11 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
 
     // Koin
-    val koinVersion = "2.1.6"
-    api("org.koin:koin-androidx-scope:$koinVersion")
-    api("org.koin:koin-androidx-viewmodel:$koinVersion")
-    api("org.koin:koin-androidx-fragment:$koinVersion")
-    api("org.koin:koin-androidx-ext:$koinVersion")
+    val koinVersion = "3.0.2"
+    api("io.insert-koin:koin-android:$koinVersion")
+    api("io.insert-koin:koin-android-ext:$koinVersion")
+    api("io.insert-koin:koin-androidx-workmanager:$koinVersion")
+
 
     // Navigation
     val navigationVersion = "2.3.0"

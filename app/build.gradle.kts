@@ -3,8 +3,8 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     id("androidx.navigation.safeargs.kotlin")
-    kotlin("kapt")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -66,10 +66,14 @@ dependencies {
     // Kotlin
     implementation(embeddedKotlin("stdlib-jdk8"))
     implementation("androidx.cardview:cardview:1.0.0")
-    implementation("com.google.firebase:firebase-messaging:20.1.0")
 
     val firebaseVersion = "28.1.0"
     implementation  ("com.google.firebase:firebase-bom:$firebaseVersion")
+    implementation ("com.google.firebase:firebase-crashlytics:18.0.1")
+
+    val firebaseMessagingVersion = "20.1.0"
+    implementation("com.google.firebase:firebase-messaging:$firebaseMessagingVersion")
+
 
     // Kotlin coroutines
     val coroutinesVersion = "1.3.8"
@@ -89,7 +93,7 @@ dependencies {
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.0.0")
 
     // UI
-    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.appcompat:appcompat:1.3.0")
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.drawerlayout:drawerlayout:1.1.1")
@@ -107,10 +111,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
     // Extensions
-    implementation("androidx.core:core-ktx:1.3.1")
+    implementation("androidx.core:core-ktx:1.5.0")
 
     // Auto service
     val autoServiceVersion = "1.0-rc7"
     implementation("com.google.auto.service:auto-service:$autoServiceVersion")
-    kapt("com.google.auto.service:auto-service:$autoServiceVersion")
+    annotationProcessor("com.google.auto.service:auto-service:$autoServiceVersion")
 }
