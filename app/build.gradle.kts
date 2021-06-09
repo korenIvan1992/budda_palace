@@ -4,6 +4,7 @@ plugins {
     kotlin("android.extensions")
     id("androidx.navigation.safeargs.kotlin")
     kotlin("kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -12,7 +13,6 @@ android {
 
     defaultConfig {
         applicationId = "com.android.buddhapalace.quotes"
-
         minSdkVersion(21)
         targetSdkVersion(30)
 
@@ -66,6 +66,10 @@ dependencies {
     // Kotlin
     implementation(embeddedKotlin("stdlib-jdk8"))
     implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.google.firebase:firebase-messaging:20.1.0")
+
+    val firebaseVersion = "28.1.0"
+    implementation  ("com.google.firebase:firebase-bom:$firebaseVersion")
 
     // Kotlin coroutines
     val coroutinesVersion = "1.3.8"

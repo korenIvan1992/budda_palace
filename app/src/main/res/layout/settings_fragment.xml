@@ -29,7 +29,7 @@
             name="about_buddha_palace"
             type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
-         <variable name="settingsHandlers" type="com.android.buddhapalace.quotes.ui.settings.SettingsViewModel"/>
+        <variable name="settingsHandlers" type="com.android.buddhapalace.quotes.ui.settings.SettingsViewModel"/>
 
     </data>
 
@@ -197,5 +197,6 @@
 
 
 </layout>
+
 
 

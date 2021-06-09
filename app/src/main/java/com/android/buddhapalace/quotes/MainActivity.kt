@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
-    var stateBackPressed = true
+    private var stateBackPressed = true
     lateinit var navController: NavController
     lateinit var bottomNavigationView: BottomNavigationView
 

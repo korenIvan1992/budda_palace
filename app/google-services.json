@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "143957122344",
+    "firebase_url": "https://lama-quotes.firebaseio.com",
+    "project_id": "lama-quotes",
+    "storage_bucket": "lama-quotes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143957122344:android:481994cc013643e223441d",
+        "android_client_info": {
+          "package_name": "com.android.buddhapalace.quotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143957122344-nuues68eu5ifisk53e06lbm91ofqka6p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZs1AJdZNEW8sMf_Fyaely94jM-tZ-dDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143957122344-nuues68eu5ifisk53e06lbm91ofqka6p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "143957122344-d12p9rjniqfbb35r6geigq9mhr0pt08l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lama-quotes.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

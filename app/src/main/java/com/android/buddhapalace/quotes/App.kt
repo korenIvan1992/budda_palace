@@ -1,6 +1,7 @@
 package com.android.buddhapalace.quotes
 
 import android.app.Application
+import com.android.buddhapalace.quotes.firebase.NotificationService
 import com.android.core.KoinModule
 import net.danlew.android.joda.JodaTimeAndroid
 import org.koin.android.ext.koin.androidContext
@@ -25,5 +26,6 @@ class App : Application() {
             fragmentFactory()
             modules(koinModules)
         }
+        NotificationService.instance(this)
     }
 }

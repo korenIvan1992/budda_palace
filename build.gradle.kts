@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-buildscript {
+ buildscript {
     val kotlin_version by extra("1.3.72")
     repositories {
         google()
@@ -14,8 +14,13 @@ buildscript {
             version = "2.3.0"
         )
 
+        classpath(
+            group = "com.google.gms",
+            name = "google-services",
+            version = "4.3.8"
+        )
         // Gradle plugins
-        classpath(group = "com.android.tools.build", name = "gradle", version = "4.1.3")
+        classpath(group = "com.android.tools.build", name = "gradle", version = "4.2.1")
         classpath(embeddedKotlin(module = "gradle-plugin"))
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
 
@@ -28,14 +33,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-//        maven {
-//            name = "Nexus"
-//            url = uri("https://nexus.int.imlab.by/repository/ikassa-backend")
-//            credentials {
-//                username = project.ext["nexusUsername"].toString()
-//                password = project.ext["nexusPassword"].toString()
-//            }
-//        }
     }
 }
 
