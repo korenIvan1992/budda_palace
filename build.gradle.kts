@@ -1,10 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
  buildscript {
-    val kotlin_version by extra("1.5.10")
+     val kotlin_version by extra("1.3.72")
     repositories {
         google()
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         // Navigation plugin
@@ -29,7 +29,7 @@
 allprojects {
     repositories {
         google()
-        mavenCentral()
+        jcenter()
     }
 }
 

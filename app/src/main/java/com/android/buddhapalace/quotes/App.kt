@@ -7,8 +7,9 @@ import net.danlew.android.joda.JodaTimeAndroid
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.androidx.fragment.koin.fragmentFactory
-import java.util.*
 import org.koin.core.context.startKoin
+
+import java.util.*
 
 class App : Application() {
 

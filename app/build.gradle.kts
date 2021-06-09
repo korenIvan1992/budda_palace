@@ -5,6 +5,8 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+    kotlin("kapt")
+
 }
 
 android {
@@ -111,10 +113,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
     // Extensions
-    implementation("androidx.core:core-ktx:1.5.0")
+    implementation("androidx.core:core-ktx:1.3.1")
 
     // Auto service
     val autoServiceVersion = "1.0-rc7"
     implementation("com.google.auto.service:auto-service:$autoServiceVersion")
-    annotationProcessor("com.google.auto.service:auto-service:$autoServiceVersion")
+    kapt("com.google.auto.service:auto-service:$autoServiceVersion")
 }

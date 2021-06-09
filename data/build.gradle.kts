@@ -2,6 +2,8 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("android.extensions")
+    kotlin("kapt")
+
 }
 
 
@@ -47,7 +49,7 @@ dependencies {
     val roomVersion = "2.2.5"
     implementation("androidx.room:room-ktx:$roomVersion")
     implementation("androidx.room:room-runtime:$roomVersion")
-    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
 
     // Network
     val okHttpVersion = "4.8.1"
@@ -69,12 +71,12 @@ dependencies {
 
     //implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
 
-    // Koin
-    val koinVersion = "3.0.2"
-    implementation("io.insert-koin:koin-android:$koinVersion")
-    implementation("io.insert-koin:koin-android-ext:$koinVersion")
+    val koinVersion = "2.1.6"
+    implementation("org.koin:koin-core:$koinVersion")
+
+
     // Auto service
     val autoServiceVersion = "1.0-rc7"
     implementation("com.google.auto.service:auto-service:$autoServiceVersion")
-    annotationProcessor("com.google.auto.service:auto-service:$autoServiceVersion")
+    kapt("com.google.auto.service:auto-service:$autoServiceVersion")
 }
