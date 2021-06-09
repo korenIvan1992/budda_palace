@@ -2,17 +2,16 @@ package com.android.buddapalace.ui.settings.quotesreminders
 
 import com.android.buddapalace.ui.allglobal.BaseViewModel
 import com.android.core.extensions.set
-import timber.log.Timber
 
 class QuotesRemindersViewModel(
-) : BaseViewModel<QuotesReminersState>(QuotesReminersState.Suspense) {
+) : BaseViewModel<QuotesRemindersState>(QuotesRemindersState.Suspense) {
 
     fun back() {
-        state.set(QuotesReminersState.Back)
+        state.set(QuotesRemindersState.Back)
     }
 
     fun onCheckedChanged(checked: Boolean) {
-        Timber.d("")
+        state.set(QuotesRemindersState.VisibleDescription(checked))
     }
 }
 

@@ -1,6 +1,5 @@
 package com.android.buddapalace.ui.settings.quotesreminders
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +12,7 @@ import com.android.buddapalace.R
 import com.android.buddapalace.databinding.QuotesRemindersFragmentBinding
 import com.android.buddapalace.ui.allglobal.extentions.makeGone
 import com.android.buddapalace.ui.allglobal.extentions.makeVisible
+import kotlinx.android.synthetic.main.quotes_reminders_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -20,7 +20,6 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
 
     private val viewModel: QuotesRemindersViewModel by viewModel()
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,14 +48,18 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
     }
 
 
-    private fun render(state: QuotesReminersState) {
+    private fun render(state: QuotesRemindersState) {
         when (state) {
-            QuotesReminersState.Suspense -> {
+            QuotesRemindersState.Suspense -> {
             }
-            QuotesReminersState.Loading -> {
+            QuotesRemindersState.Loading -> {
             }
-            QuotesReminersState.Back -> {
+            QuotesRemindersState.Back -> {
                 (requireActivity() as MainActivity).navController.popBackStack()
+            }
+            is QuotesRemindersState.VisibleDescription -> {
+                if(state.state) description_view.makeVisible()
+                else description_view.makeGone()
             }
         }
     }

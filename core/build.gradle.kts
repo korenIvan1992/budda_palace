@@ -40,5 +40,13 @@ dependencies {
 
     // Koin
     val koinVersion = "2.1.6"
-    implementation("org.koin:koin-core:$koinVersion")
+    api("org.koin:koin-androidx-scope:$koinVersion")
+    api("org.koin:koin-androidx-viewmodel:$koinVersion")
+    api("org.koin:koin-androidx-fragment:$koinVersion")
+    api("org.koin:koin-androidx-ext:$koinVersion")
+
+    // Navigation
+    val navigationVersion = "2.3.0"
+    api("androidx.navigation:navigation-ui-ktx:$navigationVersion")
+    api("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
 }

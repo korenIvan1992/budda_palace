@@ -3,11 +3,9 @@ package com.android.buddapalace
 import android.app.Application
 import com.android.core.KoinModule
 import net.danlew.android.joda.JodaTimeAndroid
-import org.koin.android.BuildConfig.FLAVOR
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.androidx.fragment.koin.fragmentFactory
-import org.koin.androidx.viewmodel.BuildConfig.FLAVOR
 import java.util.*
 import org.koin.core.context.startKoin
 

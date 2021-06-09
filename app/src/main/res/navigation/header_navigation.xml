@@ -31,13 +31,19 @@
         android:id="@+id/settings"
         android:name="com.android.buddapalace.ui.settings.SettingsFragments"
         tools:layout="@layout/settings_fragment" >
+
         <action
             android:id="@+id/action_settings_to_quotes_reminder"
             app:destination="@id/quotes_reminder" />
+
     </fragment>
 
     <fragment
         android:id="@+id/quotes_reminder"
         android:name="com.android.buddapalace.ui.settings.quotesreminders.QuotesRemindersFragments"
-        tools:layout="@layout/quotes_reminders_fragment" />
+        tools:layout="@layout/quotes_reminders_fragment">
+
+    </fragment>
+
+
 </navigation>

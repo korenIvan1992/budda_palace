@@ -29,12 +29,20 @@
             android:scaleType="centerCrop"
             android:src="@drawable/bg_big" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{(view) -> quotesRemindersHandlers.back()}"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="32dp"
-            android:onClick="@{(view) -> quotesRemindersHandlers.back()}"
             android:src="@drawable/back_white"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,6 +101,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/switch_description" />
 
             <LinearLayout
+                tools:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/description_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

@@ -32,7 +32,7 @@ android {
     flavorDimensions("default")
 
     productFlavors {
-        val appName = "Test"
+        val appName = "Quotes"
 
         create("prod") {
             versionCode = 1
@@ -91,18 +91,6 @@ dependencies {
     implementation("androidx.drawerlayout:drawerlayout:1.1.1")
     implementation("com.github.razir.progressbutton:progressbutton:2.1.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-
-    // Koin
-    val koinVersion = "2.1.6"
-    implementation("org.koin:koin-androidx-scope:$koinVersion")
-    implementation("org.koin:koin-androidx-viewmodel:$koinVersion")
-    implementation("org.koin:koin-androidx-fragment:$koinVersion")
-    implementation("org.koin:koin-androidx-ext:$koinVersion")
-
-    // Navigation
-    val navigationVersion = "2.3.0"
-    implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
-    implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
 
     // List
     val pagingVersion = "2.1.2"

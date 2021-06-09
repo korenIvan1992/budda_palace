@@ -1,9 +1,6 @@
 package com.android.buddapalace.ui.allglobal.extentions
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Build
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.animation.Animation
