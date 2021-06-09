@@ -1,11 +1,11 @@
-package com.android.buddapalace.ui.quotes
+package com.android.buddhapalace.quotes.ui.quotes
 
 import android.os.Bundle
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
-import com.android.buddapalace.MainActivity
-import com.android.buddapalace.R
+import com.android.buddhapalace.quotes.MainActivity
+import com.android.buddhapalace.quotes.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

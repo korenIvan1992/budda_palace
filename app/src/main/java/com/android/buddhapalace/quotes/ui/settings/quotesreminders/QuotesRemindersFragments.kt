@@ -1,4 +1,4 @@
-package com.android.buddapalace.ui.settings.quotesreminders
+package com.android.buddhapalace.quotes.ui.settings.quotesreminders
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
-import com.android.buddapalace.MainActivity
-import com.android.buddapalace.R
-import com.android.buddapalace.databinding.QuotesRemindersFragmentBinding
-import com.android.buddapalace.ui.allglobal.extentions.makeGone
-import com.android.buddapalace.ui.allglobal.extentions.makeVisible
+import com.android.buddhapalace.quotes.MainActivity
+import com.android.buddhapalace.quotes.R
+import com.android.buddhapalace.quotes.databinding.QuotesRemindersFragmentBinding
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeGone
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeVisible
 import kotlinx.android.synthetic.main.quotes_reminders_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

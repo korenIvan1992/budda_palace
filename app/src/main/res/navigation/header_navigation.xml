@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/quotes"
-        android:name="com.android.buddapalace.ui.quotes.QuotesFragment"
+        android:name="com.android.buddhapalace.quotes.ui.quotes.QuotesFragment"
         tools:layout="@layout/quotes_fragment">
     <argument
         android:name="logout"
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/favorites"
-        android:name="com.android.buddapalace.ui.favorites.FavoritesFragment"
+        android:name="com.android.buddhapalace.quotes.ui.favorites.FavoritesFragment"
         tools:layout="@layout/favorites_fragment" >
         <action
             android:id="@+id/action_favorites_to_settings"
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/settings"
-        android:name="com.android.buddapalace.ui.settings.SettingsFragments"
+        android:name="com.android.buddhapalace.quotes.ui.settings.SettingsFragments"
         tools:layout="@layout/settings_fragment" >
 
         <action
@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/quotes_reminder"
-        android:name="com.android.buddapalace.ui.settings.quotesreminders.QuotesRemindersFragments"
+        android:name="com.android.buddhapalace.quotes.ui.settings.quotesreminders.QuotesRemindersFragments"
         tools:layout="@layout/quotes_reminders_fragment">
 
     </fragment>

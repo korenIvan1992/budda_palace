@@ -1,4 +1,4 @@
-package com.android.buddapalace.ui.allglobal
+package com.android.buddhapalace.quotes.ui.allglobal
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

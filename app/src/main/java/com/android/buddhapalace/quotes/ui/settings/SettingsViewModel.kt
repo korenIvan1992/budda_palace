@@ -1,11 +1,12 @@
-package com.android.buddapalace.ui.settings
+package com.android.buddhapalace.quotes.ui.settings
 
 import android.content.Intent
 import android.net.Uri
 import android.view.View
-import com.android.buddapalace.MainActivity
-import com.android.buddapalace.R
-import com.android.buddapalace.ui.allglobal.BaseViewModel
+import com.android.buddhapalace.quotes.MainActivity
+import com.android.buddhapalace.quotes.R
+import com.android.buddhapalace.quotes.ui.allglobal.BaseViewModel
+import com.android.buddhapalace.quotes.ui.settings.SettingsState
 
 class SettingsViewModel(
 ) : BaseViewModel<SettingsState>(SettingsState.Suspense) {

@@ -7,12 +7,12 @@
 
         <variable
             name="daily_quotes_teminders_name"
-            type="com.android.buddapalace.model.settings.Setting" />
+            type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
 
         <variable
             name="quotesRemindersHandlers"
-            type="com.android.buddapalace.ui.settings.quotesreminders.QuotesRemindersViewModel" />
+            type="com.android.buddhapalace.quotes.ui.settings.quotesreminders.QuotesRemindersViewModel" />
 
     </data>
 

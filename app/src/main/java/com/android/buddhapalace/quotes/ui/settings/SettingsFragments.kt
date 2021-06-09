@@ -1,4 +1,4 @@
-package com.android.buddapalace.ui.settings
+package com.android.buddhapalace.quotes.ui.settings
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,10 +10,10 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
-import com.android.buddapalace.MainActivity
-import com.android.buddapalace.R
-import com.android.buddapalace.databinding.SettingsFragmentBinding
-import com.android.buddapalace.model.settings.Setting
+import com.android.buddhapalace.quotes.MainActivity
+import com.android.buddhapalace.quotes.R
+import com.android.buddhapalace.quotes.databinding.SettingsFragmentBinding
+import com.android.buddhapalace.quotes.model.settings.Setting
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

@@ -7,29 +7,29 @@
 
         <variable
             name="daily_quotes_reminders"
-            type="com.android.buddapalace.model.settings.Setting" />
+            type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
         <variable
             name="give_us_feedback"
-            type="com.android.buddapalace.model.settings.Setting" />
+            type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
         <variable
             name="rate_app"
-            type="com.android.buddapalace.model.settings.Setting" />
+            type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
         <variable
             name="recommend_app"
-            type="com.android.buddapalace.model.settings.Setting" />
+            type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
         <variable
             name="acknowledgement"
-            type="com.android.buddapalace.model.settings.Setting" />
+            type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
         <variable
             name="about_buddha_palace"
-            type="com.android.buddapalace.model.settings.Setting" />
+            type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
-         <variable name="settingsHandlers" type="com.android.buddapalace.ui.settings.SettingsViewModel"/>
+         <variable name="settingsHandlers" type="com.android.buddhapalace.quotes.ui.settings.SettingsViewModel"/>
 
     </data>
 

@@ -1,4 +1,4 @@
-package com.android.buddapalace
+package com.android.buddhapalace
 
 import org.junit.Test
 

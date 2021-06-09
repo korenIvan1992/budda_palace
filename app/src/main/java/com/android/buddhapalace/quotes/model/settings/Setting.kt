@@ -1,4 +1,4 @@
-package com.android.buddapalace.model.settings
+package com.android.buddhapalace.quotes.model.settings
 
 import android.graphics.drawable.Drawable
 

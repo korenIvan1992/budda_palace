@@ -1,4 +1,4 @@
-package com.android.buddapalace.ui.settings
+package com.android.buddhapalace.quotes.ui.settings
 
 
 sealed class SettingsState {

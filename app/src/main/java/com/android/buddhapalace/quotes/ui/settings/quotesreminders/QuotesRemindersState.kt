@@ -1,4 +1,4 @@
-package com.android.buddapalace.ui.settings.quotesreminders
+package com.android.buddhapalace.quotes.ui.settings.quotesreminders
 
 
 sealed class QuotesRemindersState {

@@ -1,9 +1,9 @@
-package com.android.buddapalace.di
+package com.android.buddhapalace.quotes.di
 
 
-import com.android.buddapalace.ui.quotes.QuotesViewModel
-import com.android.buddapalace.ui.settings.SettingsViewModel
-import com.android.buddapalace.ui.settings.quotesreminders.QuotesRemindersViewModel
+import com.android.buddhapalace.quotes.ui.quotes.QuotesViewModel
+import com.android.buddhapalace.quotes.ui.settings.SettingsViewModel
+import com.android.buddhapalace.quotes.ui.settings.quotesreminders.QuotesRemindersViewModel
 import com.android.core.KoinModule
 import com.google.auto.service.AutoService
 import org.koin.dsl.module

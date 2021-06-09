@@ -1,4 +1,4 @@
-package com.android.buddapalace
+package com.android.buddhapalace.quotes
 
 import android.app.Application
 import com.android.core.KoinModule

@@ -1,4 +1,4 @@
-package com.android.buddapalace
+package com.android.buddhapalace
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

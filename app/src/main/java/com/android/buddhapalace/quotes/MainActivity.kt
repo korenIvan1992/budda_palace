@@ -1,13 +1,13 @@
-package com.android.buddapalace
+package com.android.buddhapalace.quotes
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.android.buddapalace.ui.allglobal.extentions.makeGone
-import com.android.buddapalace.ui.allglobal.extentions.makeVisible
-import com.android.buddapalace.ui.allglobal.extentions.toast
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeGone
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeVisible
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope

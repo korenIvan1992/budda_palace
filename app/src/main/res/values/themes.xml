@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.BuddaPalace" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.BuddhaPalace" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/red_dark</item>
         <item name="colorPrimaryDark">@color/red_dark</item>
         <item name="colorAccent">@color/red_dark</item>

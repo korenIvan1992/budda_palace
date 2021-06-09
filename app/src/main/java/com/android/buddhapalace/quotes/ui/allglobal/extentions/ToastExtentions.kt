@@ -1,4 +1,4 @@
-package com.android.buddapalace.ui.allglobal.extentions
+package com.android.buddhapalace.quotes.ui.allglobal.extentions
 
 import android.app.Activity
 import android.widget.Toast

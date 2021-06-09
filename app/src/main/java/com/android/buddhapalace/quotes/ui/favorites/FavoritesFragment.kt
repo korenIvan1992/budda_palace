@@ -1,9 +1,9 @@
-package com.android.buddapalace.ui.favorites
+package com.android.buddhapalace.quotes.ui.favorites
 
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import com.android.buddapalace.MainActivity
-import com.android.buddapalace.R
+import com.android.buddhapalace.quotes.MainActivity
+import com.android.buddhapalace.quotes.R
 
 class FavoritesFragment  : Fragment(R.layout.favorites_fragment) {
 

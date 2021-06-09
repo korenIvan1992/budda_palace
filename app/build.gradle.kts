@@ -11,7 +11,7 @@ android {
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
-        applicationId = "com.android.buddapalace"
+        applicationId = "com.android.buddhapalace.quotes"
 
         minSdkVersion(21)
         targetSdkVersion(30)

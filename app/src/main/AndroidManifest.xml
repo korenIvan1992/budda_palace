@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.buddapalace">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.buddhapalace.quotes">
 
     <application
         android:name=".App"
@@ -10,10 +11,11 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:screenOrientation="portrait"
-        android:theme="@style/Theme.BuddaPalace">
+        android:theme="@style/Theme.BuddhaPalace">
         <activity
             android:screenOrientation="portrait"
-            android:name=".MainActivity">
+            android:name=".MainActivity"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
