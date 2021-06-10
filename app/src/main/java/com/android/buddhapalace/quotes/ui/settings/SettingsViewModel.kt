@@ -14,8 +14,7 @@ class SettingsViewModel(
 
 
     fun clickRate(view: View) {
-        val f = BigDecimal(".")
-//        view.context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.growmeup.android")))
+        view.context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.growmeup.android")))
     }
     fun clickDailyReminder(view: View) {
         (view.context as MainActivity).navController.navigate(R.id.action_settings_to_quotes_reminder)
