@@ -1,8 +1,6 @@
 package com.android.data.database.dao.quotes
 
-import android.bluetooth.le.AdvertiseSettings
 import androidx.room.*
-import com.android.data.database.entity.quotes.Quotes
 import com.android.data.database.entity.settings.SettingsNotification
 
 @Dao

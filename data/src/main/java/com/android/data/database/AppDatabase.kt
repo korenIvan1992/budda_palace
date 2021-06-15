@@ -8,12 +8,12 @@ import androidx.room.TypeConverters
 import com.android.data.database.converter.ConverterDb
 import com.android.data.database.dao.quotes.QuotesDao
 import com.android.data.database.dao.quotes.SettingsNotificationDao
-import com.android.data.database.entity.quotes.Quotes
+import com.android.data.database.entity.quotes.Quote
 import com.android.data.database.entity.settings.SettingsNotification
 
 @Database(
-    entities = [Quotes::class, SettingsNotification::class],
-    version = 3,
+    entities = [Quote::class, SettingsNotification::class],
+    version = 5,
     exportSchema = false
 )
 @TypeConverters(ConverterDb::class)

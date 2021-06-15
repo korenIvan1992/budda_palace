@@ -5,6 +5,8 @@
     repositories {
         google()
         jcenter()
+        maven(url = "https://jitpack.io")
+
     }
     dependencies {
         // Navigation plugin
@@ -30,6 +32,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven(url = "https://jitpack.io")
     }
 }
 

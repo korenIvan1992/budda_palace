@@ -4,9 +4,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Quotes(
+data class Quote(
         @PrimaryKey
         val id: Long,
-        val name: String,
-        val text: String
+        val autor: String,
+        val text: String,
+        val date: String
 )

@@ -1,28 +1,28 @@
 package com.android.data.database.dao.quotes
 
 import androidx.room.*
-import com.android.data.database.entity.quotes.Quotes
+import com.android.data.database.entity.quotes.Quote
 
 @Dao
 interface QuotesDao {
-    @Query("SELECT * FROM quotes")
-    suspend fun allQuotes(): List<Quotes>
+    @Query("SELECT * FROM quote")
+    suspend fun allQuotes(): List<Quote>
 
     @Insert
-    suspend fun insert(catalog: Quotes)
+    suspend fun insert(catalog: Quote)
 
     @Insert
-    fun insertList(list: List<Quotes>)
+    fun insertList(list: List<Quote>)
 
     @Update
-    suspend fun update(catalog: Quotes)
+    suspend fun update(catalog: Quote)
 
     @Update
-    suspend fun updateList(listCatalog: List<Quotes>)
+    suspend fun updateList(listCatalog: List<Quote>)
 
     @Delete
-    suspend fun delete(catalog: Quotes)
+    suspend fun delete(catalog: Quote)
 
-    @Query("DELETE FROM Quotes")
+    @Query("DELETE FROM Quote")
     suspend fun deleteAll()
 }

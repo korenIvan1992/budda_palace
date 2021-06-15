@@ -122,4 +122,8 @@ dependencies {
     val autoServiceVersion = "1.0-rc7"
     implementation("com.google.auto.service:auto-service:$autoServiceVersion")
     kapt("com.google.auto.service:auto-service:$autoServiceVersion")
+
+    val cardStackViewVersion = "2.3.4"
+    implementation ("com.yuyakaido.android:card-stack-view:$cardStackViewVersion")
+
 }
