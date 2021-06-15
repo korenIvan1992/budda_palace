@@ -11,6 +11,7 @@ import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 
 /**
@@ -81,8 +82,16 @@ fun rateGoogle(context: Context) {
             )
         );
     }
-}
 
+
+}
+fun TextView.setAppearance(context: Context, res: Int) {
+    if (Build.VERSION.SDK_INT < 23) {
+        setTextAppearance(context, res)
+    } else {
+        setTextAppearance(res)
+    }
+}
 
 
 

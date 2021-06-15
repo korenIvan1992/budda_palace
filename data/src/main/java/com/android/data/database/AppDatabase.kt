@@ -7,17 +7,20 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.android.data.database.converter.ConverterDb
 import com.android.data.database.dao.quotes.QuotesDao
+import com.android.data.database.dao.quotes.SettingsNotificationDao
 import com.android.data.database.entity.quotes.Quotes
+import com.android.data.database.entity.settings.SettingsNotification
 
 @Database(
-    entities = [Quotes::class],
-    version = 1,
+    entities = [Quotes::class, SettingsNotification::class],
+    version = 3,
     exportSchema = false
 )
 @TypeConverters(ConverterDb::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val quotesDao: QuotesDao
+    abstract val settingsNotificationDao: SettingsNotificationDao
 
     companion object {
 

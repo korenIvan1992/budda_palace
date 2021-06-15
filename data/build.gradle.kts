@@ -61,6 +61,8 @@ dependencies {
         exclude(module = "joda-time")
         //}
     }
+    implementation("net.danlew:android.joda:2.10.9.1")
+
     implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-jackson:$retrofitVersion")

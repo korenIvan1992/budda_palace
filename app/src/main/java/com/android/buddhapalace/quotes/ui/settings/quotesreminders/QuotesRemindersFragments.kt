@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
@@ -12,6 +14,8 @@ import com.android.buddhapalace.quotes.R
 import com.android.buddhapalace.quotes.databinding.QuotesRemindersFragmentBinding
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeGone
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeVisible
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.setAppearance
+import com.android.data.database.model.settings.DayWeek
 import kotlinx.android.synthetic.main.quotes_reminders_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -25,15 +29,20 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel.state.observe(viewLifecycleOwner) { state -> render(state = state) }
 
         val binding: QuotesRemindersFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.quotes_reminders_fragment, container, false
         )
 
-        binding.quotesRemindersHandlers = viewModel
+        initListener(binding)
+        viewModel.initData()
 
         return binding.root
+    }
+
+    private fun initListener(binding: QuotesRemindersFragmentBinding) {
+        viewModel.state.observe(viewLifecycleOwner) { state -> render(state = state) }
+        binding.quotesRemindersHandlers = viewModel
     }
 
 
@@ -58,9 +67,50 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
                 (requireActivity() as MainActivity).navController.popBackStack()
             }
             is QuotesRemindersState.VisibleDescription -> {
-                if(state.state) description_view.makeVisible()
-                else description_view.makeGone()
+                setVisibleDescription(state.state)
+            }
+
+            is QuotesRemindersState.StateDay -> {
+                changeStateView(state.view!!, state.stateDay!!)
+            }
+
+            is QuotesRemindersState.StateDayFirst -> {
+                state.settings.let {
+                    setStateForDay(it.mapDayWeek)
+                    setVisibleDescription(it.state)
+
+                }
             }
         }
+    }
+
+    fun setVisibleDescription(state: Boolean){
+        switch_description.isChecked = state
+        if (state) description_view.makeVisible()
+        else description_view.makeGone()
+    }
+
+    private fun changeStateView(textView: TextView, state: Boolean) {
+        var backgroundColor =
+            ContextCompat.getDrawable(requireActivity(), R.drawable.gradient_mango)
+        val style = if (state) {
+            R.style.week_day_active
+        } else {
+            backgroundColor = ContextCompat.getDrawable(requireActivity(), R.drawable.corner_gray)
+            R.style.week_day
+        }
+        textView.setAppearance(requireActivity(), style)
+        textView.background = backgroundColor
+    }
+
+
+    private fun setStateForDay(map: MutableMap<String, Boolean>) {
+        changeStateView(mon, map[DayWeek.MONDAY.name]!!)
+        changeStateView(tue, map[DayWeek.TUESDAY.name]!!)
+        changeStateView(wen, map[DayWeek.WEDNESDAY.name]!!)
+        changeStateView(thu, map[DayWeek.TUESDAY.name]!!)
+        changeStateView(fri, map[DayWeek.FRIDAY.name]!!)
+        changeStateView(sat, map[DayWeek.SATURDAY.name]!!)
+        changeStateView(sun, map[DayWeek.SUNDAY.name]!!)
     }
 }

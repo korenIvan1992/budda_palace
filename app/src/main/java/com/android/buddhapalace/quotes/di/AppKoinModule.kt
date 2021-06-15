@@ -12,7 +12,12 @@ import org.koin.dsl.module
 val viewModelModule = module {
     viewModel { QuotesViewModel(quotesRepositories = get()) }
     viewModel { SettingsViewModel() }
-    viewModel { QuotesRemindersViewModel() }
+    viewModel {
+        QuotesRemindersViewModel(
+            pref = get(),
+            settingsRepositories = get()
+        )
+    }
 }
 
 @AutoService(KoinModule::class)

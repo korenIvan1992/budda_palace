@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -77,13 +77,13 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_description"
-                android:onCheckedChanged="@{(switch, checked) -> quotesRemindersHandlers.onCheckedChanged(checked)}"
                 style="@style/title_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
+                android:onCheckedChanged="@{(switch, checked) -> quotesRemindersHandlers.onCheckedChanged(checked)}"
                 android:text="@string/allow_notifications"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -101,16 +101,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/switch_description" />
 
             <LinearLayout
-                tools:visibility="visible"
-                android:visibility="gone"
                 android:id="@+id/description_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sep1">
+                app:layout_constraintTop_toBottomOf="@+id/sep1"
+                tools:visibility="visible">
 
 
                 <LinearLayout
@@ -140,39 +140,46 @@
                         <TextView
                             android:id="@+id/mon"
                             style="@style/week_day_active"
+                            android:onClick="@{(view) -> quotesRemindersHandlers.clickWeekDay(1,view)}"
                             android:text="@string/mon" />
 
                         <TextView
                             android:id="@+id/tue"
                             style="@style/week_day"
                             android:layout_weight="1"
+                            android:onClick="@{(view) -> quotesRemindersHandlers.clickWeekDay(2,view)}"
                             android:text="@string/tue" />
 
                         <TextView
                             android:id="@+id/wen"
                             style="@style/week_day"
                             android:layout_weight="1"
+                            android:onClick="@{(view) -> quotesRemindersHandlers.clickWeekDay(3,view)}"
                             android:text="@string/wen" />
 
                         <TextView
                             android:id="@+id/thu"
                             style="@style/week_day_active"
                             android:layout_weight="1"
+                            android:onClick="@{(view) -> quotesRemindersHandlers.clickWeekDay(4,view)}"
                             android:text="@string/thu" />
 
                         <TextView
                             android:id="@+id/fri"
                             style="@style/week_day"
                             android:layout_weight="1"
+                            android:onClick="@{(view) -> quotesRemindersHandlers.clickWeekDay(5,view)}"
                             android:text="@string/fri" />
 
                         <TextView
+                            android:onClick="@{(view) -> quotesRemindersHandlers.clickWeekDay(6,view)}"
                             android:id="@+id/sat"
                             style="@style/week_day_active"
                             android:layout_weight="1"
                             android:text="@string/sat" />
 
                         <TextView
+                            android:onClick="@{(view) -> quotesRemindersHandlers.clickWeekDay(7,view)}"
                             android:id="@+id/sun"
                             style="@style/week_day"
                             android:layout_weight="1"
@@ -181,6 +188,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:onClick="@{(view) -> quotesRemindersHandlers.clickWeekDay(8,view)}"
                         android:id="@+id/every_day"
                         style="@style/week_day"
                         android:layout_width="match_parent"

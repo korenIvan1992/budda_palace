@@ -8,4 +8,5 @@ val databaseModule = module {
     single { AppDatabase.getInstance(get()) }
     single { PreferenceManager(get()) }
     single { get<AppDatabase>().quotesDao }
+    single { get<AppDatabase>().settingsNotificationDao }
 }

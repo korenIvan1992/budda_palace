@@ -83,13 +83,15 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
     // Joda time
-    implementation("net.danlew:android.joda:2.10.7.2")
+    val jodaTimeVersion = "2.10.7.2"
+    implementation("net.danlew:android.joda:$jodaTimeVersion")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-joda:2.12.0") {
         //compile('com.some.project:some-module:0.1') {
             // Exclude joda-time from this dependency to remove the errors.
         exclude(module="joda-time")
         //}
     }
+
 
     // Android
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.0.0")
@@ -113,7 +115,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
     // Extensions
-    implementation("androidx.core:core-ktx:1.3.1")
+    val extensionsVersion = "1.3.1"
+    implementation("androidx.core:core-ktx:$extensionsVersion")
 
     // Auto service
     val autoServiceVersion = "1.0-rc7"
