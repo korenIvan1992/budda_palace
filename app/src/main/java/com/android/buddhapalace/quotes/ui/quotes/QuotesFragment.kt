@@ -10,6 +10,7 @@ import com.android.buddhapalace.quotes.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.DefaultItemAnimator
+import com.android.buddhapalace.quotes.ui.quotes.adapter.CardStackAdapter
 import com.android.data.database.entity.quotes.Quote
 import com.yuyakaido.android.cardstackview.*
 import kotlinx.android.synthetic.main.quotes_fragment.*

@@ -53,11 +53,11 @@
             android:layout_height="0dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/poppins_regular"
-            android:textColor="@color/black"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppins_regular"
             android:text="A generous relationship rarely knows dramas. One is happy when the partner is happy. And one is happy when growing on three levels: on the physical level, which gives love, material things, and protection; on the inner level — through compassion and wisdom — which provides the motivation for development; and on a deep-lying, secret level where both partners enrich themselves with the qualities of the other and increasingly find their center."
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/autor_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,25 +69,46 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:fontFamily="@font/poppins_regular"
-            android:textStyle="italic"
-            android:textSize="12sp"
             android:layout_marginBottom="32dp"
-            android:textColor="@color/gray"
+            android:fontFamily="@font/poppins_regular"
             android:text="Buddha  Love: Timeless Wisdom for Modern Relationships (2012)"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:textStyle="italic"
             app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/like_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/like" />
+
+        <ImageView
+            android:id="@+id/like_button3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/like_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/like_button"
+            app:srcCompat="@drawable/redo" />
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/like_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/like_button"
+            app:srcCompat="@drawable/undo" />
 
         <View
             android:id="@+id/view"
@@ -95,7 +116,7 @@
             android:layout_height="1dp"
             android:layout_marginBottom="16dp"
             android:background="@color/separate"
-            app:layout_constraintBottom_toTopOf="@+id/imageView5"
+            app:layout_constraintBottom_toTopOf="@+id/like_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
