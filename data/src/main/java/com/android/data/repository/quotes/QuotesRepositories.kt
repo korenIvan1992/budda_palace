@@ -7,4 +7,7 @@ class QuotesRepositories(
     val quotesLocalDataSource: QuotesLocalDataSource,
     val quotesRemoteDataSource: QuotesRemoteDataSource
 ) {
+
+    fun getQuotes() = quotesLocalDataSource.getQuotes()
+
 }
