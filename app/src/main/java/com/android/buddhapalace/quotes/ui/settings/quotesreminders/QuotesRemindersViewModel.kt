@@ -2,9 +2,12 @@ package com.android.buddhapalace.quotes.ui.settings.quotesreminders
 
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.viewModelScope
 import com.android.buddhapalace.quotes.ui.allglobal.BaseViewModel
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.toast
 import com.android.core.extensions.set
+import com.android.core.extensions.toast
 import com.android.data.PreferenceManager
 import com.android.data.database.model.settings.DayWeek
 import com.android.data.repository.settings.SettingsRepositories
@@ -29,6 +32,7 @@ class QuotesRemindersViewModel(
             state.set(QuotesRemindersState.StateDay(it.mapDayWeek, stateDay, view as TextView))
         }
     }
+
 
     fun onCheckedChanged(checked: Boolean) {
         settingsLocalDataSource.changeAllowNotification(checked)

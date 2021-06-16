@@ -71,6 +71,4 @@ class SettingsFragments : Fragment(R.layout.settings_fragment) {
             }
         }
     }
-
-
 }

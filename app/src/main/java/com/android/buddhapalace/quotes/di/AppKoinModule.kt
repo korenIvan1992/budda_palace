@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel { QuotesViewModel(quotesRepositories = get()) }
-    viewModel { SettingsViewModel() }
+    viewModel { SettingsViewModel(getProperty("about_buddha_palace")) }
     viewModel {
         QuotesRemindersViewModel(
             pref = get(),

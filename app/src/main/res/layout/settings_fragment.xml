@@ -6,6 +6,7 @@
     <data>
 
         <variable
+
             name="daily_quotes_reminders"
             type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
@@ -116,6 +117,7 @@
                     <include layout="@layout/separate_view" />
 
                     <include
+                        android:onClick="@{settingsHandlers::recommendApp}"
                         layout="@layout/settings_item_icon"
                         bind:setting="@{recommend_app}" />
 
@@ -151,6 +153,7 @@
                     <include layout="@layout/separate_view" />
 
                     <include
+                        android:onClick="@{settingsHandlers::openWebUrl}"
                         layout="@layout/settings_item"
                         bind:setting="@{about_buddha_palace}" />
 
@@ -161,6 +164,7 @@
 
 
             <ImageView
+                android:onClick="@{(view) -> settingsHandlers.del(view)}"
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
