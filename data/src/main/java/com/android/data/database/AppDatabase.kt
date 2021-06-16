@@ -13,7 +13,7 @@ import com.android.data.database.entity.settings.SettingsNotification
 
 @Database(
     entities = [Quote::class, SettingsNotification::class],
-    version = 5,
+    version = 6,
     exportSchema = false
 )
 @TypeConverters(ConverterDb::class)

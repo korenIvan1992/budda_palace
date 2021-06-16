@@ -15,7 +15,7 @@
     android:layout_marginEnd="32dp"
     android:layout_marginStart="32dp"
     app:cardPreventCornerOverlap="false"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="20dp"
     app:cardBackgroundColor="@color/white_card">
 
 
@@ -80,7 +80,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/like_button"
+            android:id="@+id/like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -91,13 +91,13 @@
             app:srcCompat="@drawable/like" />
 
         <ImageView
-            android:id="@+id/like_button3"
+            android:id="@+id/early"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="32dp"
-            app:layout_constraintBottom_toBottomOf="@+id/like_button"
+            app:layout_constraintBottom_toBottomOf="@+id/like"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/like_button"
+            app:layout_constraintTop_toTopOf="@+id/like"
             app:srcCompat="@drawable/redo" />
 
         <ImageView
@@ -105,9 +105,9 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginEnd="32dp"
-            app:layout_constraintBottom_toBottomOf="@+id/like_button"
+            app:layout_constraintBottom_toBottomOf="@+id/like"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/like_button"
+            app:layout_constraintTop_toTopOf="@+id/like"
             app:srcCompat="@drawable/undo" />
 
         <View
@@ -116,9 +116,35 @@
             android:layout_height="1dp"
             android:layout_marginBottom="16dp"
             android:background="@color/separate"
-            app:layout_constraintBottom_toTopOf="@+id/like_button"
+            app:layout_constraintBottom_toTopOf="@+id/like"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view">
+
+            <View
+                android:id="@+id/early_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <View
+                android:id="@+id/like_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <View
+                android:id="@+id/back_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

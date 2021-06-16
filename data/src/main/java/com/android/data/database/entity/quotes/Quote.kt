@@ -9,5 +9,6 @@ data class Quote(
         val id: Long,
         val autor: String,
         val text: String,
-        val date: String
+        val date: String,
+        var like : Boolean
 )
