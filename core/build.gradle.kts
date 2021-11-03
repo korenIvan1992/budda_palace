@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    id("com.google.gms.google-services")
 
 }
 
@@ -28,6 +29,7 @@ android {
 dependencies {
     // Kotlin
     implementation(embeddedKotlin("stdlib-jdk8"))
+    implementation("com.google.firebase:firebase-config-ktx:21.0.0")
 
     // Kotlin coroutines
     val coroutinesVersion = "1.3.8"
@@ -36,9 +38,12 @@ dependencies {
     val timberVersion = "4.7.1"
     api("com.jakewharton.timber:timber:$timberVersion")
 
+
     // Lifecycle
     val lifecycleVersion = "2.2.0"
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
     // Koin
     val koinVersion = "2.1.6"

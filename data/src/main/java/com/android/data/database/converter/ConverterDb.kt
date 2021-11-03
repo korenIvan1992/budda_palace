@@ -2,11 +2,14 @@ package com.android.data.database.converter
 
 import android.provider.SyncStateContract
 import androidx.room.TypeConverter
+import com.android.data.database.entity.quotes.Languages
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
+import org.joda.time.DateTime
 import java.math.BigDecimal
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime.ofInstant
 import java.util.*
 
 class ConverterDb {
@@ -34,6 +37,19 @@ class ConverterDb {
         return ObjectMapper().readValue(data, typeRef)
     }
 
+    @TypeConverter
+    fun fromLanguages(data: Languages): String {
+        return ObjectMapper().writeValueAsString(data)
+    }
+
+    @TypeConverter
+    fun toLanguages(data: String): Languages {
+        val typeRef: TypeReference<Languages> = object : TypeReference<Languages>() {}
+        return ObjectMapper().readValue(data, typeRef)
+    }
+
+
+
 
     @TypeConverter
     fun fromTimestamp(value: Long): Date {
@@ -45,3 +61,4 @@ class ConverterDb {
         return date.time
     }
 }
+

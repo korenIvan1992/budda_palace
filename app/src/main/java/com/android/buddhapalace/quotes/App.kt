@@ -13,6 +13,8 @@ import java.util.*
 
 class App : Application() {
 
+    var r : String ="ffe"
+
     private val koinModules =
         ServiceLoader
             .load(KoinModule::class.java)

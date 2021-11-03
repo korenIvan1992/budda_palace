@@ -3,11 +3,20 @@ package com.android.buddhapalace.quotes.ui.settings
 import android.content.Intent
 import android.net.Uri
 import android.view.View
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
+import androidx.lifecycle.viewModelScope
 import com.android.buddhapalace.quotes.BuildConfig
 import com.android.buddhapalace.quotes.MainActivity
 import com.android.buddhapalace.quotes.R
 import com.android.buddhapalace.quotes.ui.allglobal.BaseViewModel
 import com.android.core.extensions.toast
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 
 
 class SettingsViewModel(
@@ -16,13 +25,20 @@ class SettingsViewModel(
 
 
     fun clickRate(view: View) {
-        view.context.startActivity(
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("market://details?id=${BuildConfig.APPLICATION_ID}")
-            )
-        )
+//        view.context.startActivity(
+//            Intent(
+//                Intent.ACTION_VIEW,
+//                Uri.parse("market://details?id=${BuildConfig.APPLICATION_ID}")
+//            )
+//        )
+        viewModelScope.launch {
+            state.postValue(SettingsState.Loading)
+            delay(1)
+            state.postValue(SettingsState.Suspense)
+        }
     }
+
+
 
     fun clickDailyReminder(view: View) {
         (view.context as MainActivity).navController.navigate(R.id.action_settings_to_quotes_reminder)
@@ -52,4 +68,5 @@ class SettingsViewModel(
             view.toast("Жыве Беларусь")
         }
     }
+
 }

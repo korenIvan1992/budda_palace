@@ -29,10 +29,10 @@ class QuotesRemindersViewModel(
         settingsLocalDataSource.settingsNotification?.let {
             settingsLocalDataSource.changeSettingDay(dayWeek)
             val stateDay = it.mapDayWeek[dayWeek.name]
-            state.set(QuotesRemindersState.StateDay(it.mapDayWeek, stateDay, view as TextView))
+            state
+                .set(QuotesRemindersState.StateDay(it.mapDayWeek, stateDay, view as TextView))
         }
     }
-
 
     fun onCheckedChanged(checked: Boolean) {
         settingsLocalDataSource.changeAllowNotification(checked)

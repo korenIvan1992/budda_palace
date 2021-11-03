@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    id("com.google.gms.google-services")
 
 }
 
@@ -36,6 +37,7 @@ dependencies {
 
     // Android
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.0.0")
+    implementation("com.google.firebase:firebase-config-ktx:21.0.0")
 
     // JWT decoder
     val jwtDecodeVersion = "2.0.0"
@@ -61,6 +63,7 @@ dependencies {
         exclude(module = "joda-time")
         //}
     }
+    implementation ("com.google.code.gson:gson:2.8.8")
     implementation("net.danlew:android.joda:2.10.9.1")
 
     implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
@@ -77,8 +80,11 @@ dependencies {
     implementation("org.koin:koin-core:$koinVersion")
 
 
+    //firebase
+
     // Auto service
     val autoServiceVersion = "1.0-rc7"
     implementation("com.google.auto.service:auto-service:$autoServiceVersion")
     kapt("com.google.auto.service:auto-service:$autoServiceVersion")
+
 }

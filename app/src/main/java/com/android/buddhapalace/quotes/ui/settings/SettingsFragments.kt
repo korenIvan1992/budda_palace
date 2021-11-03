@@ -2,6 +2,7 @@ package com.android.buddhapalace.quotes.ui.settings
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +10,19 @@ import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.observe
+import com.android.buddhapalace.quotes.App
 import com.android.buddhapalace.quotes.MainActivity
 import com.android.buddhapalace.quotes.R
 import com.android.buddhapalace.quotes.databinding.SettingsFragmentBinding
 import com.android.buddhapalace.quotes.model.settings.Setting
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-import androidx.lifecycle.observe
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.getKoin
+import timber.log.Timber
 
 class SettingsFragments : Fragment(R.layout.settings_fragment) {
 
@@ -46,6 +53,7 @@ class SettingsFragments : Fragment(R.layout.settings_fragment) {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             (requireActivity() as MainActivity).onBackPressedLast()
         }
+
     }
 
     private fun initBinding(binding: SettingsFragmentBinding) {
@@ -62,12 +70,15 @@ class SettingsFragments : Fragment(R.layout.settings_fragment) {
         (requireActivity() as MainActivity).setStateBackGround(false)
     }
 
-
     private fun render(state: SettingsState) {
-        when (state) {
-            SettingsState.Suspense -> {
-            }
-            SettingsState.Loading -> {
+        CoroutineScope(Dispatchers.Main).launch {
+            when (state) {
+                SettingsState.Suspense -> {
+                    Log.d("TAG","RENDER SettingsState.Suspense ")
+                }
+                SettingsState.Loading -> {
+                    Log.d("TAG","RENDER SettingsState.Loading ")
+                }
             }
         }
     }

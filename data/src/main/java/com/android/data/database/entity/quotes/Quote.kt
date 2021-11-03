@@ -7,8 +7,7 @@ import androidx.room.PrimaryKey
 data class Quote(
         @PrimaryKey
         val id: Long,
-        val autor: String,
-        val text: String,
+        val languages: Languages,
         val date: String,
         var like : Boolean
 )

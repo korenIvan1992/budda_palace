@@ -29,8 +29,8 @@ class CardQuoteAdapter(
             holder.likeImage.setImageResource(R.drawable.like)
 
         holder.date.text = quote.date
-        holder.quoteText.text = quote.text
-        holder.autorName.text = quote.autor
+        holder.quoteText.text = quote.languages.ru.quote
+        holder.autorName.text = quote.languages.en.quote
         holder.itemView.setOnClickListener { v ->
         }
 

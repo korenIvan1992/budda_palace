@@ -68,6 +68,7 @@ dependencies {
     // Kotlin
     implementation(embeddedKotlin("stdlib-jdk8"))
     implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.google.firebase:firebase-config-ktx:21.0.0")
 
     val firebaseVersion = "28.1.0"
     implementation  ("com.google.firebase:firebase-bom:$firebaseVersion")

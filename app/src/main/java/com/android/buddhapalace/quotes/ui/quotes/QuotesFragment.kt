@@ -23,7 +23,6 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
     private val viewModel: QuotesViewModel by viewModel()
 
     private val manager by lazy { CardStackLayoutManager(requireActivity(), this) }
-    private val adapter by lazy { CardQuoteAdapter(viewModel.getQuotes(), clickButton()) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,9 +36,21 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
 
     private fun render(state: QuotesState) {
         when (state) {
-            QuotesState.Suspense -> {
+            is QuotesState.Suspense -> {
             }
-            QuotesState.Loading -> {
+            is QuotesState.Loading -> {
+            }
+            is QuotesState.Success -> renderSuccess(list = state.list)
+
+        }
+    }
+
+    private fun renderSuccess(list: List<Quote>) {
+        card_stack_view.layoutManager = manager
+        card_stack_view.adapter = CardQuoteAdapter(list, clickButton())
+        card_stack_view.itemAnimator.apply {
+            if (this is DefaultItemAnimator) {
+                supportsChangeAnimations = false
             }
         }
     }
@@ -63,6 +74,7 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
     }
 
     private fun initialize() {
+        viewModel.setQuotes()
         manager.setStackFrom(StackFrom.Bottom)
         manager.setVisibleCount(3)
         manager.setTranslationInterval(12.0f)
@@ -74,13 +86,6 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
         manager.setCanScrollVertical(true)
         manager.setSwipeableMethod(SwipeableMethod.AutomaticAndManual)
         manager.setOverlayInterpolator(LinearInterpolator())
-        card_stack_view.layoutManager = manager
-        card_stack_view.adapter = adapter
-        card_stack_view.itemAnimator.apply {
-            if (this is DefaultItemAnimator) {
-                supportsChangeAnimations = false
-            }
-        }
     }
 
     override fun onStart() {
