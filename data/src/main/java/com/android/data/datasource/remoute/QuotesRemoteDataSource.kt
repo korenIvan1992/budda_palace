@@ -25,18 +25,14 @@ class QuotesRemoteDataSource(val context: Context, val api: BaseApiService) {
              try {
 
                 val remoteConfig = Firebase.remoteConfig
-                val configSettings = remoteConfigSettings {
-                    minimumFetchIntervalInSeconds = 3600
-                }
-                remoteConfig.setConfigSettingsAsync(configSettings)
+                 val cacheExpiration: Long = 0
 
-                val cacheExpiration: Long = 3600
 
-                remoteConfig.fetch(cacheExpiration)
+                remoteConfig.fetchAndActivate()
                     .addOnCompleteListener { task ->
                         run {
                             if (task.isSuccessful) {
-                                remoteConfig.activate()
+//                                remoteConfig.fetchAndActivate()
                                 val data = remoteConfig.getString("quotes")
                                 val listQuotes: List<QuotesDto> =
                                     Gson().fromJson(data, Array<QuotesDto>::class.java).toList()

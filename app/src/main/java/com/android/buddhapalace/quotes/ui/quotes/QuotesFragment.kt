@@ -1,10 +1,13 @@
 package com.android.buddhapalace.quotes.ui.quotes
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
@@ -24,6 +27,13 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
 
     private val manager by lazy { CardStackLayoutManager(requireActivity(), this) }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.state.observe(viewLifecycleOwner) { state -> render(state = state) }
@@ -42,6 +52,9 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
             }
             is QuotesState.Success -> renderSuccess(list = state.list)
 
+            is QuotesState.Error -> {
+                Toast.makeText(requireActivity(), state.message, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

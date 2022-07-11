@@ -7,6 +7,9 @@ import com.android.data.utils.converter.ConverterQuotes.convertQuotes
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import com.android.data.network.model.Result
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class QuotesRepositories(
     val quotesLocalDataSource: QuotesLocalDataSource,
@@ -28,13 +31,14 @@ class QuotesRepositories(
                 if (result is Result.Success) {
                    val listQuote = convertQuotes( result.data)
                     //add local base
-                    quotesLocalDataSource.setQuote(listQuote)
+                    CoroutineScope(Dispatchers.IO).launch {
+                        quotesLocalDataSource.setQuote(listQuote)
+                    }
 
                     // Emit the Quote
                     emit(listQuote)
                 }
-            }
-            else emit(it)
+            } else emit(it)
 
         }
     }

@@ -16,7 +16,8 @@ class QuotesViewModel(
         state.set(QuotesState.Loading)
         viewModelScope.launch {
             quotesRepositories.getQuotes().catch {
-                state.set(QuotesState.Error(""))
+                val ex = it
+                state.set(QuotesState.Error(ex.localizedMessage))
             }.collect {
                 state.set(QuotesState.Success(it))
             }

@@ -10,13 +10,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion = "30.0.3"
-
+    compileSdkVersion(31)
     defaultConfig {
         applicationId = "com.android.buddhapalace.quotes"
         minSdkVersion(21)
-        targetSdkVersion(30)
+        targetSdkVersion(31)
 
     }
 

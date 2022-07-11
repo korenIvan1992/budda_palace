@@ -9,12 +9,12 @@ plugins {
 
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(31)
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
         minSdkVersion(21)
-        targetSdkVersion(30)
+        targetSdkVersion(31)
 
     }
 
@@ -30,6 +30,7 @@ android {
 
 dependencies {
     // Modules
+    
     api(project(":core"))
 
     // Kotlin
@@ -38,6 +39,7 @@ dependencies {
     // Android
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.0.0")
     implementation("com.google.firebase:firebase-config-ktx:21.0.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     // JWT decoder
     val jwtDecodeVersion = "2.0.0"
@@ -48,7 +50,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
 
     // Database
-    val roomVersion = "2.2.5"
+    val roomVersion = "2.4.0"
     implementation("androidx.room:room-ktx:$roomVersion")
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
@@ -79,6 +81,10 @@ dependencies {
     val koinVersion = "2.1.6"
     implementation("org.koin:koin-core:$koinVersion")
 
+    // Kotlin coroutines
+    val coroutinesVersion = "1.4.1"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 
     //firebase
 
