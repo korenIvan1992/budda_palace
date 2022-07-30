@@ -25,8 +25,6 @@ class QuotesRemoteDataSource(val context: Context, val api: BaseApiService) {
              try {
 
                 val remoteConfig = Firebase.remoteConfig
-                 val cacheExpiration: Long = 0
-
 
                 remoteConfig.fetchAndActivate()
                     .addOnCompleteListener { task ->

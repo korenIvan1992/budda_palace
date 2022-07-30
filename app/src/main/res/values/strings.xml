@@ -7,6 +7,7 @@
     <string name="give_us_feedback">Give us feedback</string>
     <string name="rate_the_app">Rate the app</string>
     <string name="recommend_app">Recommend app</string>
+    <string name="hello_text">Hi from Belarus, check out our app</string>
     <string name="acknowledgement">Acknowledgement</string>
     <string name="about_buddha_palace">About Buddha Palace</string>
     <string name="made_with">Made with</string>
@@ -26,4 +27,7 @@
     <string name="afternoon">Afternoon</string>
     <string name="evening">Evening</string>
     <string name="any_time">At any time</string>
+    <string name="press_last">Click again if you want to exit</string>
+    <string name="exact_time">Exact time</string>
+    <string name="name">name</string>
 </resources>

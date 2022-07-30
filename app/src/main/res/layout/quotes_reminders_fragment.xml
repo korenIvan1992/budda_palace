@@ -9,7 +9,6 @@
             name="daily_quotes_teminders_name"
             type="com.android.buddhapalace.quotes.model.settings.Setting" />
 
-
         <variable
             name="quotesRemindersHandlers"
             type="com.android.buddhapalace.quotes.ui.settings.quotesreminders.QuotesRemindersViewModel" />
@@ -268,7 +267,7 @@
                             android:id="@+id/exact_time"
                             style="@style/week_day"
                             android:layout_weight="1"
-                            android:text="Exact time" />
+                            android:text="@string/exact_time" />
 
                     </LinearLayout>
 

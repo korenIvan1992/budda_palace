@@ -8,12 +8,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(31)
+        minSdk= 21
+        targetSdk = 31
     }
 
     compileOptions {
@@ -55,7 +55,7 @@ dependencies {
 
 
     // Navigation
-    val navigationVersion = "2.3.0"
+    val navigationVersion = "2.5.0"
     api("androidx.navigation:navigation-ui-ktx:$navigationVersion")
     api("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
 }

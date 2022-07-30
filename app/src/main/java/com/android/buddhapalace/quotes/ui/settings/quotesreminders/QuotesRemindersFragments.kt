@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.observe
+import androidx.lifecycle.Observer
 import com.android.buddhapalace.quotes.MainActivity
 import com.android.buddhapalace.quotes.R
 import com.android.buddhapalace.quotes.databinding.QuotesRemindersFragmentBinding
@@ -45,18 +45,6 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
         binding.quotesRemindersHandlers = viewModel
     }
 
-
-    override fun onStart() {
-        super.onStart()
-        (requireActivity() as MainActivity).bottomNavigationView.makeGone()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        (requireActivity() as MainActivity).bottomNavigationView.makeVisible()
-    }
-
-
     private fun render(state: QuotesRemindersState) {
         when (state) {
             QuotesRemindersState.Suspense -> {
@@ -64,7 +52,7 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
             QuotesRemindersState.Loading -> {
             }
             QuotesRemindersState.Back -> {
-                (requireActivity() as MainActivity).navController.popBackStack()
+                    requireActivity().supportFragmentManager.popBackStack()
             }
             is QuotesRemindersState.VisibleDescription -> {
                 setVisibleDescription(state.state)
@@ -84,7 +72,7 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
         }
     }
 
-    fun setVisibleDescription(state: Boolean){
+    private fun setVisibleDescription(state: Boolean) {
         switch_description.isChecked = state
         if (state) description_view.makeVisible()
         else description_view.makeGone()

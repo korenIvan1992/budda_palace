@@ -10,7 +10,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.observe
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.android.buddhapalace.quotes.MainActivity
 import com.android.buddhapalace.quotes.R
@@ -27,20 +27,9 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
 
     private val manager by lazy { CardStackLayoutManager(requireActivity(), this) }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.state.observe(viewLifecycleOwner) { state -> render(state = state) }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            (requireActivity() as MainActivity).onBackPressedLast()
-        }
-
         initialize()
     }
 
@@ -100,12 +89,6 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
         manager.setSwipeableMethod(SwipeableMethod.AutomaticAndManual)
         manager.setOverlayInterpolator(LinearInterpolator())
     }
-
-    override fun onStart() {
-        super.onStart()
-        (requireActivity() as MainActivity).setStateBackGround(false)
-    }
-
     private fun clickButton() =
         object : CallbackCardAdapter {
             override fun back() {
@@ -132,5 +115,4 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
 
             }
         }
-
 }

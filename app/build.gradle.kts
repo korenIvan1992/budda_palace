@@ -10,11 +10,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
     defaultConfig {
         applicationId = "com.android.buddhapalace.quotes"
-        minSdkVersion(21)
-        targetSdkVersion(31)
+        minSdk = 21
+        targetSdk = 31
 
     }
 
@@ -97,7 +97,7 @@ dependencies {
 
     // UI
     implementation("androidx.appcompat:appcompat:1.3.0")
-    implementation("com.google.android.material:material:1.3.0")
+    implementation("com.google.android.material:material:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.drawerlayout:drawerlayout:1.1.1")
     implementation("com.github.razir.progressbutton:progressbutton:2.1.0")
