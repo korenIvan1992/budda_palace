@@ -3,8 +3,7 @@ package com.android.buddhapalace.quotes
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.android.buddhapalace.quotes.ui.allglobal.UpdateQuotes
-import com.android.buddhapalace.quotes.ui.favorites.FavoritesFragment
+import com.android.buddhapalace.quotes.ui.favorites.FavoriteFragment
 import com.android.buddhapalace.quotes.ui.quotes.QuotesFragment
 import com.android.buddhapalace.quotes.ui.settings.SettingsFragments
 import com.android.data.database.entity.quotes.Quote
@@ -19,7 +18,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private val settingsFragments by lazy { SettingsFragments() }
-    private val favoritesFragment by lazy { FavoritesFragment() }
+    private val favoritesFragment by lazy { FavoriteFragment() }
     private val quotesFragment by lazy { QuotesFragment() }
 
     private var activeFragment: Fragment = quotesFragment

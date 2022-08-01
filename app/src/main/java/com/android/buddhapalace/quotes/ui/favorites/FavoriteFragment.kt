@@ -15,19 +15,19 @@ import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeGone
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeVisible
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.toast
 import com.android.buddhapalace.quotes.ui.favorites.adapter.CallbackFavoritesCardAdapter
-import com.android.buddhapalace.quotes.ui.favorites.adapter.FavoritesCardAdapter
+import com.android.buddhapalace.quotes.ui.favorites.adapter.FavoriteCardAdapter
 import com.android.buddhapalace.quotes.ui.favorites.adapter.SwipeControllerActionsDelete
 import com.android.buddhapalace.quotes.ui.favorites.adapter.SwipeControllerProduct
 import com.android.data.database.entity.quotes.Quote
 import kotlinx.android.synthetic.main.favorites_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FavoritesFragment : Fragment(R.layout.favorites_fragment), CallbackFavoritesCardAdapter,
+class FavoriteFragment : Fragment(R.layout.favorites_fragment), CallbackFavoritesCardAdapter,
     UpdateQuotes {
 
-    private val viewModel: FavoritesViewModel by viewModel()
+    private val viewModel: FavoriteViewModel by viewModel()
 
-    private val adapterRecycler by lazy { FavoritesCardAdapter(this) }
+    private val adapterRecycler by lazy { FavoriteCardAdapter(this) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -75,19 +75,19 @@ class FavoritesFragment : Fragment(R.layout.favorites_fragment), CallbackFavorit
     override fun deleteItemAdapter(id: Int) {
     }
 
-    private fun render(state: FavoritesState) {
+    private fun render(state: FavoriteState) {
         when (state) {
-            is FavoritesState.Suspense -> {
+            is FavoriteState.Suspense -> {
             }
-            is FavoritesState.Loading -> {
+            is FavoriteState.Loading -> {
 
             }
-            is FavoritesState.Success -> setListAdapter(list = state.list)
+            is FavoriteState.Success -> setListAdapter(list = state.list)
 
-            is FavoritesState.Error -> {
+            is FavoriteState.Error -> {
                 toast(state.message, Toast.LENGTH_SHORT)
             }
-            is FavoritesState.EmptyList -> {
+            is FavoriteState.EmptyList -> {
                 adapterRecycler.setQuotes(mutableListOf())
                 list_no_item.makeVisible()
             }

@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.buddhapalace.quotes.R
 import com.android.data.database.entity.quotes.Quote
 
-class FavoritesCardAdapter(
+class FavoriteCardAdapter(
     private val listener: CallbackFavoritesCardAdapter
-) : RecyclerView.Adapter<FavoritesCardAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<FavoriteCardAdapter.ViewHolder>() {
 
     private var quotes: MutableList<Quote> = mutableListOf()
 

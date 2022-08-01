@@ -8,22 +8,22 @@ import com.android.data.repository.quotes.QuotesRepositories
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
-class FavoritesViewModel(
+class FavoriteViewModel(
     private val quotesRepositories: QuotesRepositories
-) : BaseViewModel<FavoritesState>(FavoritesState.Suspense) {
+) : BaseViewModel<FavoriteState>(FavoriteState.Suspense) {
 
     fun setQuotes() {
-        state.set(FavoritesState.Loading)
+        state.set(FavoriteState.Loading)
         viewModelScope.launch {
             quotesRepositories.getFavoriteQuotes().catch {
                 it.localizedMessage?.let { error ->
-                    state.set(FavoritesState.Error(error))
+                    state.set(FavoriteState.Error(error))
                 }
             }.collect {
                 if (it.isEmpty())
-                    state.set(FavoritesState.EmptyList)
+                    state.set(FavoriteState.EmptyList)
                 else
-                    state.set(FavoritesState.Success(it))
+                    state.set(FavoriteState.Success(it))
             }
         }
     }
