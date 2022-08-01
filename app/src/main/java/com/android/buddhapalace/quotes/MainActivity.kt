@@ -3,10 +3,11 @@ package com.android.buddhapalace.quotes
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
+import com.android.buddhapalace.quotes.ui.allglobal.UpdateQuotes
 import com.android.buddhapalace.quotes.ui.favorites.FavoritesFragment
 import com.android.buddhapalace.quotes.ui.quotes.QuotesFragment
 import com.android.buddhapalace.quotes.ui.settings.SettingsFragments
+import com.android.data.database.entity.quotes.Quote
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
@@ -16,8 +17,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         const val FAVORITES = "FavoritesFragment"
         const val SETTINGS = "SettingsFragments"
     }
-
-    lateinit var navController: NavController
 
     private val settingsFragments by lazy { SettingsFragments() }
     private val favoritesFragment by lazy { FavoritesFragment() }
@@ -30,11 +29,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         supportFragmentManager.beginTransaction().apply {
             add(R.id.container_header_fragment, settingsFragments, SETTINGS).hide(settingsFragments)
-            add(R.id.container_header_fragment, favoritesFragment, FAVORITES).hide(favoritesFragment)
+            add(
+                R.id.container_header_fragment,
+                favoritesFragment,
+                FAVORITES
+            ).hide(favoritesFragment)
             add(R.id.container_header_fragment, quotesFragment, QUOTES)
         }.commit()
 
-        nav_view.setOnItemSelectedListener {menuItem ->
+        nav_view.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.quotes -> {
                     swapFragment(quotesFragment)
@@ -75,5 +78,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
         }
         super.onBackPressed()
+    }
+
+    fun update(quote: Quote) {
+        quotesFragment.update(quote)
     }
 }

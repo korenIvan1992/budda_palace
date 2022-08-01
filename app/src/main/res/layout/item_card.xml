@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!-- https://qiita.com/ntsk/items/dac92596742e18470a55 -->
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -31,19 +29,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="Когда"
             android:textColor="@color/gray"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Когда"
+            />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:src="@drawable/separate_card_top"
+            android:src="@drawable/separate_card_top_qoutes"
             app:layout_constraintEnd_toEndOf="@+id/date_title"
             app:layout_constraintStart_toStartOf="@+id/date_title"
             app:layout_constraintTop_toBottomOf="@+id/date_title" />
@@ -57,8 +56,8 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="A generous relationship rarely knows dramas. One is happy when the partner is happy. And one is happy when growing on three levels: on the physical level, which gives love, material things, and protection; on the inner level — through compassion and wisdom — which provides the motivation for development; and on a deep-lying, secret level where both partners enrich themselves with the qualities of the other and increasingly find their center."
             android:textColor="@color/black"
+            tools:text="A generous relationship rarely knows dramas. One is happy when the partner is happy. And one is happy when growing on three levels: on the physical level, which gives love, material things, and protection; on the inner level — through compassion and wisdom — which provides the motivation for development; and on a deep-lying, secret level where both partners enrich themselves with the qualities of the other and increasingly find their center."
             app:layout_constraintBottom_toTopOf="@+id/autor_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,8 +71,8 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="Buddha  Love: Timeless Wisdom for Modern Relationships (2012)"
             android:textColor="@color/gray"
+            tools:text="Buddha Love: Timeless Wisdom for Modern Relationships (2012)"
             android:textSize="12sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toTopOf="@+id/view"

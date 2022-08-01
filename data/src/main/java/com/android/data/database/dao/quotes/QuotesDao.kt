@@ -9,19 +9,19 @@ interface QuotesDao {
     suspend fun allQuotes(): List<Quote>
 
     @Insert
-    suspend fun insert(catalog: Quote)
+    suspend fun insert(quote: Quote)
 
     @Insert
     fun insertList(list: List<Quote>)
 
     @Update
-    suspend fun update(catalog: Quote)
+    suspend fun update(quote: Quote)
 
     @Update
-    suspend fun updateList(listCatalog: List<Quote>)
+    suspend fun updateList(listQuote: List<Quote>)
 
     @Delete
-    suspend fun delete(catalog: Quote)
+    suspend fun delete(quote: Quote)
 
     @Query("DELETE FROM Quote")
     suspend fun deleteAll()

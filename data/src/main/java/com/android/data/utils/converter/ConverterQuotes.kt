@@ -13,7 +13,7 @@ object ConverterQuotes {
             val quote = Quote(
                 id = it.id.toLong(),
                 languages = Languages(it.languages.en, it.languages.ru),
-                date = "Пока пусто",
+                date = "September 12th",
                 like = false
             )
             list.add(quote)

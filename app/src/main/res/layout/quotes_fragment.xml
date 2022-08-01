@@ -28,13 +28,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:textSize="22sp"
-        android:fontFamily="sans-serif-black"
-        android:textColor="@color/white"
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        style="@style/title_menu_top"
         android:text="@string/lama_ole_quotes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="@dimen/margin_bottom_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

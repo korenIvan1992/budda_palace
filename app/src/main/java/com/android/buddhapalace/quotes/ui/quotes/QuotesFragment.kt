@@ -1,27 +1,24 @@
 package com.android.buddhapalace.quotes.ui.quotes
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
-import android.widget.Toast
-import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
-import com.android.buddhapalace.quotes.MainActivity
 import com.android.buddhapalace.quotes.R
+import com.android.buddhapalace.quotes.ui.allglobal.UpdateQuotes
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.toast
 import com.android.buddhapalace.quotes.ui.quotes.adapter.CallbackCardAdapter
 import com.android.buddhapalace.quotes.ui.quotes.adapter.CardQuoteAdapter
 import com.android.data.database.entity.quotes.Quote
 import com.yuyakaido.android.cardstackview.*
 import kotlinx.android.synthetic.main.quotes_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
-class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
+class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener, UpdateQuotes {
 
     private val viewModel: QuotesViewModel by viewModel()
 
@@ -42,12 +39,12 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
             is QuotesState.Success -> renderSuccess(list = state.list)
 
             is QuotesState.Error -> {
-                Toast.makeText(requireActivity(), state.message, Toast.LENGTH_SHORT).show()
+                toast(state.message)
             }
         }
     }
 
-    private fun renderSuccess(list: List<Quote>) {
+    private fun renderSuccess(list: LinkedList<Quote>) {
         card_stack_view.layoutManager = manager
         card_stack_view.adapter = CardQuoteAdapter(list, clickButton())
         card_stack_view.itemAnimator.apply {
@@ -55,24 +52,6 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
                 supportsChangeAnimations = false
             }
         }
-    }
-
-    override fun onCardDragging(direction: Direction?, ratio: Float) {
-    }
-
-    override fun onCardSwiped(direction: Direction?) {
-    }
-
-    override fun onCardRewound() {
-    }
-
-    override fun onCardCanceled() {
-    }
-
-    override fun onCardAppeared(view: View?, position: Int) {
-    }
-
-    override fun onCardDisappeared(view: View?, position: Int) {
     }
 
     private fun initialize() {
@@ -89,6 +68,7 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
         manager.setSwipeableMethod(SwipeableMethod.AutomaticAndManual)
         manager.setOverlayInterpolator(LinearInterpolator())
     }
+
     private fun clickButton() =
         object : CallbackCardAdapter {
             override fun back() {
@@ -111,8 +91,32 @@ class QuotesFragment : Fragment(R.layout.quotes_fragment), CardStackListener {
                 card_stack_view.swipe()
             }
 
-            override fun like(state: Boolean) {
-
+            override fun like(quote: Quote) {
+                viewModel.likeQuotes(quote)
             }
         }
+
+    override fun onCardDragging(direction: Direction?, ratio: Float) {
+    }
+
+    override fun onCardSwiped(direction: Direction?) {
+    }
+
+    override fun onCardRewound() {
+    }
+
+    override fun onCardCanceled() {
+    }
+
+    override fun onCardAppeared(view: View?, position: Int) {
+    }
+
+    override fun onCardDisappeared(view: View?, position: Int) {
+    }
+
+    override fun update(quote: Quote) {
+        card_stack_view.adapter?.let{
+            (it as CardQuoteAdapter).updateElement(quote)
+        }
+    }
 }

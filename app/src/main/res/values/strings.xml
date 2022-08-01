@@ -30,4 +30,6 @@
     <string name="press_last">Click again if you want to exit</string>
     <string name="exact_time">Exact time</string>
     <string name="name">name</string>
+    <string name="favorite_quotes">Favorite quotes</string>
+    <string name="add_your_first_favorite_quote">Add your first favorite quote</string>
 </resources>

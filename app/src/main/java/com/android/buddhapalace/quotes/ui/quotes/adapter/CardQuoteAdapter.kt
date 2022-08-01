@@ -9,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.buddhapalace.quotes.R
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeGone
 import com.android.data.database.entity.quotes.Quote
+import java.util.*
 
 class CardQuoteAdapter(
-    private var quotes: List<Quote> = emptyList(),
+    private var quotes: LinkedList<Quote>,
     private val listener: (CallbackCardAdapter)
 ) : RecyclerView.Adapter<CardQuoteAdapter.ViewHolder>() {
 
@@ -47,7 +48,7 @@ class CardQuoteAdapter(
                 holder.likeImage.setImageResource(R.drawable.like)
 
             quote.like = !quote.like
-            listener.like(!quote.like)
+            listener.like(quote)
         }
         holder.backButton.setOnClickListener {
             listener.back()
@@ -61,12 +62,13 @@ class CardQuoteAdapter(
         return quotes.size
     }
 
-    fun setSpots(spots: List<Quote>) {
-        this.quotes = spots
-    }
-
-    fun getSpots(): List<Quote> {
-        return quotes
+    fun updateElement(quote: Quote) {
+        quotes.forEachIndexed { index, it ->
+            if (it.id == quote.id){
+                quotes[index] = quote
+                notifyItemChanged(index)
+            }
+        }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
