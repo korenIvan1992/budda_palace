@@ -10,13 +10,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(31)
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
         applicationId = "com.android.buddhapalace.quotes"
         minSdkVersion(21)
-        targetSdkVersion(30)
+        targetSdkVersion(31)
 
     }
 
@@ -79,7 +79,7 @@ dependencies {
 
 
     // Kotlin coroutines
-    val coroutinesVersion = "1.3.8"
+    val coroutinesVersion = "1.6.2"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
 

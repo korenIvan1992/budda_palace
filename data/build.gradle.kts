@@ -9,12 +9,12 @@ plugins {
 
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(31)
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
         minSdkVersion(21)
-        targetSdkVersion(30)
+        targetSdkVersion(31)
 
     }
 
@@ -48,7 +48,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
 
     // Database
-    val roomVersion = "2.2.5"
+    val roomVersion = "2.4.0"
     implementation("androidx.room:room-ktx:$roomVersion")
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")

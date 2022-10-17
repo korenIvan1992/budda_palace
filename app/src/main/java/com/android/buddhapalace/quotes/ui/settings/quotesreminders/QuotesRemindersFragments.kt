@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.observe
 import com.android.buddhapalace.quotes.MainActivity
 import com.android.buddhapalace.quotes.R
@@ -15,6 +17,7 @@ import com.android.buddhapalace.quotes.databinding.QuotesRemindersFragmentBindin
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeGone
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeVisible
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.setAppearance
+import com.android.core.extensions.NavigationExt.setNavigationResult
 import com.android.data.database.model.settings.DayWeek
 import kotlinx.android.synthetic.main.quotes_reminders_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -64,6 +67,7 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
             QuotesRemindersState.Loading -> {
             }
             QuotesRemindersState.Back -> {
+                setFragmentResult("someKey", bundleOf("bundle" to "button clicked 2"))
                 (requireActivity() as MainActivity).navController.popBackStack()
             }
             is QuotesRemindersState.VisibleDescription -> {

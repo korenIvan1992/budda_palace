@@ -8,12 +8,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(31)
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
         minSdkVersion(21)
-        targetSdkVersion(30)
+        targetSdkVersion(31)
     }
 
     compileOptions {
@@ -32,7 +32,7 @@ dependencies {
     implementation("com.google.firebase:firebase-config-ktx:21.0.0")
 
     // Kotlin coroutines
-    val coroutinesVersion = "1.3.8"
+    val coroutinesVersion = "1.6.2"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
 
     val timberVersion = "4.7.1"
@@ -57,4 +57,7 @@ dependencies {
     val navigationVersion = "2.3.0"
     api("androidx.navigation:navigation-ui-ktx:$navigationVersion")
     api("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+    api("androidx.fragment:fragment-ktx:1.4.1")
+
 }
+
