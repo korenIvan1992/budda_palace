@@ -2,54 +2,84 @@ package com.android.buddhapalace.quotes
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeGone
-import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeVisible
-import com.android.buddhapalace.quotes.ui.allglobal.extentions.toast
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.Fragment
+import com.android.buddhapalace.quotes.ui.favorites.FavoriteFragment
+import com.android.buddhapalace.quotes.ui.quotes.QuotesFragment
+import com.android.buddhapalace.quotes.ui.settings.SettingsFragments
+import com.android.data.database.entity.quotes.Quote
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
-    private var stateBackPressed = true
-    lateinit var navController: NavController
-    lateinit var bottomNavigationView: BottomNavigationView
+    companion object {
+        const val QUOTES = "QuotesFragment"
+        const val FAVORITES = "FavoritesFragment"
+        const val SETTINGS = "SettingsFragments"
+    }
+
+    private val settingsFragments by lazy { SettingsFragments() }
+    private val favoritesFragment by lazy { FavoriteFragment() }
+    private val quotesFragment by lazy { QuotesFragment() }
+
+    private var activeFragment: Fragment = quotesFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        navController = findNavController(R.id.nav_host_fragment)
-        bottomNavigationView = nav_view
-        bottomNavigationView.setupWithNavController(navController)
+        supportFragmentManager.beginTransaction().apply {
+            add(R.id.container_header_fragment, settingsFragments, SETTINGS).hide(settingsFragments)
+            add(
+                R.id.container_header_fragment,
+                favoritesFragment,
+                FAVORITES
+            ).hide(favoritesFragment)
+            add(R.id.container_header_fragment, quotesFragment, QUOTES)
+        }.commit()
+
+        nav_view.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.quotes -> {
+                    swapFragment(quotesFragment)
+                    true
+                }
+                R.id.favorites -> {
+                    swapFragment(favoritesFragment)
+                    true
+                }
+
+                R.id.settings -> {
+                    swapFragment(settingsFragments)
+                    true
+                }
+                else -> true
+            }
+        }
     }
 
-    fun setStateBackGround(state: Boolean) {
-        if (!state)
-            background_header.makeGone()
-        else
-            background_header.makeVisible()
+    private fun swapFragment(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .hide(activeFragment)
+            .show(fragment)
+            .commit()
+        activeFragment = fragment
     }
 
-    fun openFragment(id: Int) {
-        navController.navigate(id)
+    override fun onBackPressed() {
+        supportFragmentManager.fragments.forEach { fragment ->
+            if (fragment != null && fragment.isVisible) {
+                with(fragment.childFragmentManager) {
+                    if (backStackEntryCount > 0) {
+                        popBackStack()
+                        return
+                    }
+                }
+            }
+        }
+        super.onBackPressed()
     }
 
-     fun onBackPressedLast() {
-         if(!stateBackPressed)
-             finish()
-         else {
-             toast("Нажмите еще раз если хотите выйти")
-             stateBackPressed = false
-             CoroutineScope(Dispatchers.IO).launch {
-                 delay(2000)
-                 stateBackPressed = true
-             }
-         }
+    fun update(quote: Quote) {
+        quotesFragment.update(quote)
     }
 }

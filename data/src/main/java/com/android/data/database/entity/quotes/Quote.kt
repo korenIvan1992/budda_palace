@@ -9,5 +9,5 @@ data class Quote(
         val id: Long,
         val languages: Languages,
         val date: String,
-        var like : Boolean
+        var like : Boolean = false
 )

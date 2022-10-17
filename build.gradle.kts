@@ -7,7 +7,6 @@
         jcenter()
         maven(url = "https://jitpack.io")
         mavenCentral()
-
     }
     dependencies {
         // Navigation plugin
@@ -35,6 +34,8 @@ allprojects {
         jcenter()
         mavenCentral()
         maven(url = "https://jitpack.io")
+        mavenCentral()
+
     }
 }
 

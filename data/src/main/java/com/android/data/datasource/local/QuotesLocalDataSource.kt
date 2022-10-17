@@ -13,4 +13,8 @@ class QuotesLocalDataSource(private val context: Context,private val quotesDao: 
     suspend fun setQuote(list: List<Quote>) {
         quotesDao.insertList(list)
     }
+
+    suspend fun update(quote: Quote ){
+        quotesDao.update(quote)
+    }
 }

@@ -1,6 +1,7 @@
 package com.android.buddhapalace.quotes.di
 
 
+import com.android.buddhapalace.quotes.ui.favorites.FavoriteViewModel
 import com.android.buddhapalace.quotes.ui.quotes.QuotesViewModel
 import com.android.buddhapalace.quotes.ui.settings.SettingsViewModel
 import com.android.buddhapalace.quotes.ui.settings.quotesreminders.QuotesRemindersViewModel
@@ -11,6 +12,7 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel { QuotesViewModel(quotesRepositories = get()) }
+    viewModel { FavoriteViewModel(quotesRepositories = get()) }
     viewModel { SettingsViewModel(getProperty("about_buddha_palace")) }
     viewModel {
         QuotesRemindersViewModel(

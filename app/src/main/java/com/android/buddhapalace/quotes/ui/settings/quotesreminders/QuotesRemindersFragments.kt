@@ -48,18 +48,6 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
         binding.quotesRemindersHandlers = viewModel
     }
 
-
-    override fun onStart() {
-        super.onStart()
-        (requireActivity() as MainActivity).bottomNavigationView.makeGone()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        (requireActivity() as MainActivity).bottomNavigationView.makeVisible()
-    }
-
-
     private fun render(state: QuotesRemindersState) {
         when (state) {
             QuotesRemindersState.Suspense -> {
@@ -68,7 +56,8 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
             }
             QuotesRemindersState.Back -> {
                 setFragmentResult("someKey", bundleOf("bundle" to "button clicked 2"))
-                (requireActivity() as MainActivity).navController.popBackStack()
+//                (requireActivity() as MainActivity).navController.popBackStack()
+
             }
             is QuotesRemindersState.VisibleDescription -> {
                 setVisibleDescription(state.state)
@@ -88,7 +77,7 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
         }
     }
 
-    fun setVisibleDescription(state: Boolean){
+    private fun setVisibleDescription(state: Boolean) {
         switch_description.isChecked = state
         if (state) description_view.makeVisible()
         else description_view.makeGone()

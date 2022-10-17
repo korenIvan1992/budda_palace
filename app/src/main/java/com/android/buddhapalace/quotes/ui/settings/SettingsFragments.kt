@@ -2,11 +2,9 @@ package com.android.buddhapalace.quotes.ui.settings
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -16,15 +14,18 @@ import com.android.buddhapalace.quotes.MainActivity
 import com.android.buddhapalace.quotes.R
 import com.android.buddhapalace.quotes.databinding.SettingsFragmentBinding
 import com.android.buddhapalace.quotes.model.settings.Setting
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.openFragmentChild
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+import timber.log.Timber
+
+
 class SettingsFragments : Fragment(R.layout.settings_fragment) {
 
     private val viewModel: SettingsViewModel by viewModel()
-
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreateView(
@@ -46,14 +47,6 @@ class SettingsFragments : Fragment(R.layout.settings_fragment) {
     private fun initListener(binding: SettingsFragmentBinding) {
         viewModel.state.observe(viewLifecycleOwner) { state -> render(state = state) }
         binding.settingsHandlers = viewModel
-
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            (requireActivity() as MainActivity).onBackPressedLast()
-        }
-
-        setFragmentResultListener("someKey") { key, bundle ->
-            println("==================bundle = ${bundle.get("bundle")}")
-        }
 
     }
 
@@ -78,20 +71,20 @@ class SettingsFragments : Fragment(R.layout.settings_fragment) {
         binding.aboutBuddhaPalace = Setting(getString(R.string.about_buddha_palace), null)
     }
 
-    override fun onStart() {
-        super.onStart()
-        (requireActivity() as MainActivity).setStateBackGround(false)
-    }
-
     private fun render(state: SettingsState) {
         CoroutineScope(Dispatchers.Main).launch {
             when (state) {
                 SettingsState.Suspense -> {
-                    Log.d("TAG", "RENDER SettingsState.Suspense ")
+                    Timber.d("RENDER SettingsState.Suspense")
                 }
                 SettingsState.Loading -> {
-                    Log.d("TAG", "RENDER SettingsState.Loading ")
+                    Timber.d("RENDER SettingsState.Loading")
                 }
+
+                is SettingsState.OpenFragment -> openFragmentChild(
+                    requireActivity(),
+                    fr = state.fr
+                )
             }
         }
     }

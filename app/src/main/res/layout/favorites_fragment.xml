@@ -6,16 +6,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="179dp"
-        android:layout_marginTop="256dp"
-        android:layout_marginEnd="175dp"
-        android:text="@string/favorites"
+        style="@style/title_menu_top"
+        android:text="@string/favorite_quotes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="@dimen/margin_bottom_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/list_no_item"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/avenir_black"
+        android:layout_height="wrap_content"
+        android:text="@string/add_your_first_favorite_quote"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_favorite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

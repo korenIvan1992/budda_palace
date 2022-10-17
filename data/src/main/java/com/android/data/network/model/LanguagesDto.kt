@@ -1,13 +1,13 @@
 package com.android.data.network.model
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.google.gson.annotations.SerializedName
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 data class LanguagesDto(
-    @JsonProperty
-    @SerializedName("en")
+    @JsonProperty(value = "en")
     var en: DetailsQuoteDto,
-    @JsonProperty
-    @SerializedName("ru")
+    @JsonProperty(value = "ru")
     var ru: DetailsQuoteDto
 )

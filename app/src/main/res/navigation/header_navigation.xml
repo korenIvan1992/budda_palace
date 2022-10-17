@@ -2,48 +2,4 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/quotes">
-
-    <fragment
-        android:id="@+id/quotes"
-        android:name="com.android.buddhapalace.quotes.ui.quotes.QuotesFragment"
-        tools:layout="@layout/quotes_fragment">
-    <argument
-        android:name="logout"
-        app:argType="boolean"
-        android:defaultValue="false" />
-        <action
-            android:id="@+id/action_quotes_to_favorites"
-            app:destination="@id/favorites" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/favorites"
-        android:name="com.android.buddhapalace.quotes.ui.favorites.FavoritesFragment"
-        tools:layout="@layout/favorites_fragment" >
-        <action
-            android:id="@+id/action_favorites_to_settings"
-            app:destination="@id/settings" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/settings"
-        android:name="com.android.buddhapalace.quotes.ui.settings.SettingsFragments"
-        tools:layout="@layout/settings_fragment" >
-
-        <action
-            android:id="@+id/action_settings_to_quotes_reminder"
-            app:destination="@id/quotes_reminder" />
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/quotes_reminder"
-        android:name="com.android.buddhapalace.quotes.ui.settings.quotesreminders.QuotesRemindersFragments"
-        tools:layout="@layout/quotes_reminders_fragment">
-
-    </fragment>
-
-
-</navigation>
+    android:id="@+id/mobile_navigation" />
