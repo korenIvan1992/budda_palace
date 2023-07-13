@@ -16,6 +16,7 @@ class SettingsLocalDataSource(
     var settingsNotification: SettingsNotification? = null
 
     
+    
     suspend fun getSetting(): SettingsNotification {
         if (settingsNotification != null) return settingsNotification as SettingsNotification
         else {
