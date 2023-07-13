@@ -15,6 +15,7 @@ import com.android.buddhapalace.quotes.R
 import com.android.buddhapalace.quotes.databinding.SettingsFragmentBinding
 import com.android.buddhapalace.quotes.model.settings.Setting
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.openFragmentChild
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.openFragmentReplace
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -81,7 +82,7 @@ class SettingsFragments : Fragment(R.layout.settings_fragment) {
                     Timber.d("RENDER SettingsState.Loading")
                 }
 
-                is SettingsState.OpenFragment -> openFragmentChild(
+                is SettingsState.OpenFragmentReplace -> openFragmentReplace(
                     requireActivity(),
                     fr = state.fr
                 )

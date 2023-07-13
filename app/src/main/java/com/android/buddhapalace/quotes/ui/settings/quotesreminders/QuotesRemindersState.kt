@@ -14,6 +14,8 @@ sealed class QuotesRemindersState {
         val map: MutableMap<String,Boolean>,
         val stateDay: Boolean?,
         val view : TextView?) : QuotesRemindersState()
+
+    object AllDay : QuotesRemindersState()
     data class VisibleDescription(val state: Boolean) : QuotesRemindersState()
     data class StateDayFirst(val settings: SettingsNotification) : QuotesRemindersState()
 

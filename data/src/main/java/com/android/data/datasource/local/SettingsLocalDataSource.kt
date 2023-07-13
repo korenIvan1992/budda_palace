@@ -47,19 +47,40 @@ class SettingsLocalDataSource(
     }
 
     fun changeSettingDay(dayWeek: DayWeek) {
-        val mapDay = settingsNotification!!.mapDayWeek
-        mapDay[dayWeek.name] = !mapDay[dayWeek.name]!!
+
+        var mapDay = settingsNotification!!.mapDayWeek
         CoroutineScope(Dispatchers.IO).launch {
-            settingsNotification = SettingsNotification(
-                id = settingsNotification!!.id,
-                state = settingsNotification!!.state,
-                mapDayWeek = mapDay,
-                time = Date()
-            )
+            mapDay[dayWeek.name] = !mapDay[dayWeek.name]!!
+            mapDay[DayWeek.ALL_DAY.name] = false
+              settingsNotification = SettingsNotification(
+                    id = settingsNotification!!.id,
+                    state = settingsNotification!!.state,
+                    mapDayWeek = mapDay,
+                    time = Date()
+                )
             settingsNotificationDao.update(settingsNotification!!)
         }
     }
-    fun changeAllowNotification(state : Boolean){
+
+    fun allDay(){
+        settingsNotification = SettingsNotification(
+            id = settingsNotification!!.id,
+            state = settingsNotification!!.state,
+            mapDayWeek = mutableMapOf(
+                DayWeek.MONDAY.name to false,
+                DayWeek.TUESDAY.name to false,
+                DayWeek.WEDNESDAY.name to false,
+                DayWeek.THURSDAY.name to false,
+                DayWeek.FRIDAY.name to false,
+                DayWeek.SATURDAY.name to false,
+                DayWeek.SUNDAY.name to false,
+                DayWeek.ALL_DAY.name to true
+            ),
+            time = Date()
+        )
+    }
+
+    fun changeAllowNotification(state: Boolean) {
         CoroutineScope(Dispatchers.IO).launch {
             settingsNotification!!.state = state
             settingsNotificationDao.update(settingsNotification!!)

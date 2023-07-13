@@ -2,10 +2,8 @@ package com.android.buddhapalace.quotes.ui.settings.quotesreminders
 
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.viewModelScope
 import com.android.buddhapalace.quotes.ui.allglobal.BaseViewModel
-import com.android.buddhapalace.quotes.ui.allglobal.extentions.toast
 import com.android.core.extensions.set
 import com.android.core.extensions.toast
 import com.android.data.PreferenceManager
@@ -26,11 +24,26 @@ class QuotesRemindersViewModel(
 
     fun clickWeekDay(day: Int, view: View) {
         val dayWeek = DayWeek.values()[day - 1]
+
         settingsLocalDataSource.settingsNotification?.let {
-            settingsLocalDataSource.changeSettingDay(dayWeek)
-            val stateDay = it.mapDayWeek[dayWeek.name]
-            state
-                .set(QuotesRemindersState.StateDay(it.mapDayWeek, stateDay, view as TextView))
+            var stateDay = it.mapDayWeek[dayWeek.name]
+            if (day == 8) {
+                if (stateDay == false) {
+                    state.set(QuotesRemindersState.AllDay)
+                    settingsLocalDataSource.allDay()
+                }
+            } else {
+                state
+                    .set(
+                        QuotesRemindersState.StateDay(
+                            it.mapDayWeek,
+                            !stateDay!!,
+                            view as TextView
+                        )
+                    )
+                settingsLocalDataSource.changeSettingDay(dayWeek)
+            }
+
         }
     }
 

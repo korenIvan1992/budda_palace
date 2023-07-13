@@ -7,12 +7,18 @@ import com.android.buddhapalace.quotes.R
 fun openFragmentChild(act: FragmentActivity, fr: androidx.fragment.app.Fragment) {
     act.supportFragmentManager
         .beginTransaction()
-        .add(R.id.container_child_fragment, fr)
+        .add(R.id.container_header_fragment, fr)
         .addToBackStack(null)
         .commit()
 }
 
-
+fun openFragmentReplace(act: FragmentActivity, fr: androidx.fragment.app.Fragment) {
+    act.supportFragmentManager
+        .beginTransaction()
+        .add(R.id.container_child_fragment, fr)
+        .addToBackStack(null)
+        .commit()
+}
 
 
 

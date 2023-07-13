@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="daily_quotes_teminders_name"
             type="com.android.buddhapalace.quotes.model.settings.Setting" />
@@ -18,6 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable="false"
         android:background="@color/white_settings_bottom">
 
 

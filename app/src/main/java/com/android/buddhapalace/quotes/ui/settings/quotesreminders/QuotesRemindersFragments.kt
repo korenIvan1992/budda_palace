@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
@@ -16,6 +17,7 @@ import com.android.buddhapalace.quotes.R
 import com.android.buddhapalace.quotes.databinding.QuotesRemindersFragmentBinding
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeGone
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.makeVisible
+import com.android.buddhapalace.quotes.ui.allglobal.extentions.onClick
 import com.android.buddhapalace.quotes.ui.allglobal.extentions.setAppearance
 import com.android.core.extensions.NavigationExt.setNavigationResult
 import com.android.data.database.model.settings.DayWeek
@@ -52,18 +54,33 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
         when (state) {
             QuotesRemindersState.Suspense -> {
             }
+
             QuotesRemindersState.Loading -> {
             }
+
             QuotesRemindersState.Back -> {
                 setFragmentResult("someKey", bundleOf("bundle" to "button clicked 2"))
-//                (requireActivity() as MainActivity).navController.popBackStack()
+                (requireActivity() as MainActivity).onBackPressed()
 
             }
+
             is QuotesRemindersState.VisibleDescription -> {
                 setVisibleDescription(state.state)
             }
 
+            is QuotesRemindersState.AllDay -> {
+                changeStateView(mon, false)
+                changeStateView(tue, false)
+                changeStateView(wen, false)
+                changeStateView(thu, false)
+                changeStateView(fri, false)
+                changeStateView(sat, false)
+                changeStateView(sun, false)
+                changeStateView(every_day, true)
+            }
+
             is QuotesRemindersState.StateDay -> {
+                changeStateView(every_day, false)
                 changeStateView(state.view!!, state.stateDay!!)
             }
 
@@ -105,5 +122,6 @@ class QuotesRemindersFragments : Fragment(R.layout.quotes_reminders_fragment) {
         changeStateView(fri, map[DayWeek.FRIDAY.name]!!)
         changeStateView(sat, map[DayWeek.SATURDAY.name]!!)
         changeStateView(sun, map[DayWeek.SUNDAY.name]!!)
+        changeStateView(every_day, map[DayWeek.ALL_DAY.name]!!)
     }
 }

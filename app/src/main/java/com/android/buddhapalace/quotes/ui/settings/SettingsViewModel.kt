@@ -24,7 +24,7 @@ class SettingsViewModel(
     }
 
     fun clickDailyReminder(view: View) {
-        state.set(SettingsState.OpenFragment(QuotesRemindersFragments()))
+        state.set(SettingsState.OpenFragmentReplace(QuotesRemindersFragments()))
 
     }
 
