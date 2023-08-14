@@ -14,8 +14,6 @@ class SettingsLocalDataSource(
     private val settingsNotificationDao: SettingsNotificationDao
 ) {
     var settingsNotification: SettingsNotification? = null
-
-
     
     suspend fun getSetting(): SettingsNotification {
         if (settingsNotification != null) return settingsNotification as SettingsNotification
